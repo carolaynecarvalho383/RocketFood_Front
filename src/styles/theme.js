@@ -1,14 +1,14 @@
 export default {
   COLORS: {
-    MAIN_BG: "#262529",
+    MAIN_BG: "#000A0F",
 
-    SECONDARY_COLOR: "#948F99",
+    SECONDARY_BG: "#001119",
 
     TERNARY_COLOR: "#1C1B1E",
 
-    QUATERNARY_COLOR: "#FF859B",
+    TEXT_COLOR: "#7C7C8A",
 
-    WHITE: "#F4EDE8",
+    WHITE: "#FFFFFF",
 
     BG_BLACK: "#0D0C0F",
     WHITE_400: "#E5E5E5;",

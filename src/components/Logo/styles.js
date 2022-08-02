@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  gap: 1rem;
   align-items: center;
-
-  >section{
-    background: ${({ theme})=> theme.COLORS.SECONDARY_BG};
+  > h1{
+    font-size: 3rem;
+    color: ${({ theme }) => theme.COLORS.WHITE};
   }
-`
 
+`

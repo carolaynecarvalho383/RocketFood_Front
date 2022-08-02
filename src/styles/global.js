@@ -11,10 +11,13 @@ export default createGlobalStyle`
   }
   :root{
   font-size: 62.5%;
-  -webkit-font-smoothing: antialiased;
-  }
-  body{
+}
+body{
   font-size: 1.6rem;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Poppins', sans-serif;
+  background: ${({ theme }) => theme.COLORS.MAIN_BG};
+  
   }
   .sr-only {
   opacity: 0;
