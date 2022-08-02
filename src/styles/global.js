@@ -33,6 +33,24 @@ body{
   .hide{
   display: none;
   }
+  button,
+  a {
+    cursor: pointer;
+    transition: filter 0.2s;
+  }
+  button:hover,
+   a:hover{
+    cursor: pointer;
+    filter: brightness(0.9);
+  }
 
+ // @keyframes rotateAnimation {
+	//from {transform: rotateY(45deg);}
+	//to {transform: rotateY(225deg);}}
+
+  @keyframes rotateAnimation {
+    from {transform: rotateY(45deg)}
+    to {transform: rotateY(225deg)}
+  }
 
 `

@@ -5,13 +5,13 @@ export const Container = styled.div`
   flex-direction: column;
   gap:1rem;
   color:${({ theme }) => theme.COLORS.TEXT_COLOR};
+  width: 100%;
   >label{
     font-family: 'Roboto' ,sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 1.6rem;
     line-height: 1.6rem;
-
 
   }
   >input{
