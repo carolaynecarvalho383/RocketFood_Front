@@ -50,7 +50,7 @@ body{
 
   @keyframes rotateAnimation {
     from {transform: rotateY(45deg)}
-    to {transform: rotateY(225deg)}
+    to {transform: rotateY(225deg);}
   }
 
 `

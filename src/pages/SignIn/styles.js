@@ -7,8 +7,9 @@ export const Container = styled.div`
   padding: 1rem;
   >section{
     background: ${({ theme})=> theme.COLORS.SECONDARY_BG};
-    padding:  2rem 2rem 6.4rem 2rem;
+    padding:  6.4rem 2rem;
   }
+  
 `
 export const Form = styled.form`
   display: flex;
@@ -16,6 +17,13 @@ export const Form = styled.form`
   gap: 3.2rem;
   align-items: center;
   margin-top: 3.2rem;
-  
+  >a{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    color: ${({ theme }) => theme.COLORS.WHITE};
+  }
 `
 

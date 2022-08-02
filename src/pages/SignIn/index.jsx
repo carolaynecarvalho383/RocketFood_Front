@@ -20,6 +20,7 @@ export function SignIn() {
             placeholder="No mínimo 6 caracteres" />
 
           <Button title=" Entrar" />
+          <a href="#">Criar Conta</a>
         </Form>
       </Section>
 
