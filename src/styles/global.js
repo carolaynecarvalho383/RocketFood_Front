@@ -11,7 +11,7 @@ export default createGlobalStyle`
   }
   :root{
   font-size: 62.5%;
-}
+  }
 body{
   font-size: 1.6rem;
   -webkit-font-smoothing: antialiased;
@@ -32,6 +32,12 @@ body{
   }
   .hide{
   display: none;
+  }
+  a{
+    color: ${({ theme }) => theme.COLORS.WHITE};
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
   button,
   a {

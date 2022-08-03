@@ -16,7 +16,7 @@ export const Container = styled.div`
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  font-size: 4.2rem;
+  font-size: 2.2rem;
   line-height: 5rem;
 
   }

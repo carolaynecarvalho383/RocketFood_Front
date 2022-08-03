@@ -6,7 +6,8 @@ export const Container = styled.footer`
   display: flex;
   align-items: center;
   justify-content: space-between;
- 
+  background: ${({ theme }) => theme.COLORS.SECONDARY_BG};
+
   >small{
     color: ${({ theme }) => theme.COLORS.WHITE};
     display: flex;
@@ -16,7 +17,7 @@ export const Container = styled.footer`
     padding: 0 1rem;
 
     >h4{
-    font-family: Roboto;
+    font-family: 'Roboto';
     color: ${({ theme }) => theme.COLORS.TEXT_COLOR};
     display: flex;
     align-items: center;

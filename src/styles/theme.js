@@ -4,7 +4,7 @@ export default {
 
     SECONDARY_BG: "#001119",
 
-    TERNARY_COLOR: "#1C1B1E",
+    TERNARY_BG: "#0D1D25",
 
     TEXT_COLOR: "#7C7C8A",
 
