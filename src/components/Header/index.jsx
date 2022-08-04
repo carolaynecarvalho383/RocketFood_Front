@@ -4,6 +4,7 @@ import { Logo } from "../Logo"
 import { Button } from "../Button"
 import { SearchBar } from "../SearchBar"
 import { AiFillShopping, AiOutlineHeart, } from "react-icons/ai"
+import{FiHexagon} from "react-icons/fi"
 
 export function Header() {
 
@@ -13,6 +14,7 @@ export function Header() {
   return (
     <Container>
       <Logo className="logo"
+        icon={<FiHexagon className="icon2" size={25}/>}
         title="Food Explorer"
       />
       <SearchBar />

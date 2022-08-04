@@ -7,7 +7,11 @@ export const Container = styled.header`
   align-items:  center;
   padding: 0 2rem;
   gap: 1rem;
- 
+  >.icon{
+    color: ${({ theme }) => theme.COLORS.DARK_BLUE};
+   fill: ${({ theme }) => theme.COLORS.DARK_BLUE};
+   font-size: 5rem;
+  }
   
 `
 

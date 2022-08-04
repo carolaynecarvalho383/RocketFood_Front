@@ -8,6 +8,7 @@ export default createGlobalStyle`
   box-sizing: 0;
   list-style: none;
   text-decoration: none;
+  box-sizing: border-box;
   }
   :root{
   font-size: 62.5%;
@@ -17,7 +18,7 @@ body{
   -webkit-font-smoothing: antialiased;
   font-family: 'Poppins', sans-serif;
   background: ${({ theme }) => theme.COLORS.MAIN_BG};
-  
+  color: ${({ theme }) => theme.COLORS.WHITE};
   }
   .sr-only {
   opacity: 0;
