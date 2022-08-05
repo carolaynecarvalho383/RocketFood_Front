@@ -13,7 +13,7 @@ export const Container = styled.div`
   
   border: 1px solid rgba(0, 0, 0, 0.65);
   border-radius: 8px;
-
+  margin: 0 auto;
   >strong{
   font-weight: 400;
   font-size: 3.2rem;
@@ -29,12 +29,25 @@ export const Container = styled.div`
     cursor: pointer;
   }
 
+  >.ingredient-container{
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+  }
+
 `
 
 export const Purchases = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: column;
   gap: 1.1rem;
+  >div:first-child{
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+  cursor: pointer;
+  }
   >svg{
       cursor: pointer;
   }

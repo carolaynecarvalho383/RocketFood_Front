@@ -8,3 +8,10 @@ export const Container = styled.div`
 }
 
 `
+
+
+export const Main = styled.main`
+  padding: 1rem;
+  text-align: center;
+
+`

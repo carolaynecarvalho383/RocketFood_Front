@@ -4,6 +4,7 @@ export const Container = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 1rem;
   >h2{
     color: ${({ theme})=> theme.COLORS.WHITE};
     margin: 0 auto;
