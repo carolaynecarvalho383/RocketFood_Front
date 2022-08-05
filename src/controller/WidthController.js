@@ -8,6 +8,8 @@ export function WidthController(){
     
     console.log(width);
   }
+  console.log(width);
+
   return{
     width
   }

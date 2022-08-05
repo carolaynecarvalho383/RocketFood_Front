@@ -11,15 +11,18 @@ import "./styles.css";
 
 // import required modules
 import { Pagination, Navigation } from "swiper";
+import {WidthController} from "../../controller/WidthController"
+const widthController = WidthController()
 
 export function Carousel({content}) {
-   let teste = 1
+  
+   let teste  = 1
   return (
     <>
       <Swiper
         slidesPerView={teste}
         spaceBetween={30}
-        slidesPerGroup={3}
+        slidesPerGroup={1}
         loop={true}
         loopFillGroupWithBlank={true}
         pagination={{
