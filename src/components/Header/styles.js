@@ -38,7 +38,7 @@ export const Nav = styled.nav`
 
   }
 
- >button{
+ >a button{
     max-width: max-content;
     padding: 1rem;
     
