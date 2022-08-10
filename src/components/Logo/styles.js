@@ -17,6 +17,7 @@ export const Container = styled.div`
    color: ${({ theme }) => theme.COLORS.DARK_BLUE};
    fill: ${({ theme }) => theme.COLORS.DARK_BLUE};
    font-size: 3rem;
+   
  }
   > h1{
     color: ${({ theme }) => theme.COLORS.WHITE};
@@ -27,6 +28,13 @@ export const Container = styled.div`
   font-size: 2.2rem;
   line-height: 5rem;
 
+  }
+
+  @media(min-width:768px) {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    width: 70%;
   }
 
 `

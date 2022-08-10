@@ -7,10 +7,21 @@ export const Container = styled.header`
   align-items:  center;
   padding: 0 2rem;
   gap: 1rem;
+  
   >.icon{
     color: ${({ theme }) => theme.COLORS.DARK_BLUE};
    fill: ${({ theme }) => theme.COLORS.DARK_BLUE};
    font-size: 5rem;
+ 
+  
+  }
+  @media(min-width:768px) {
+    flex-direction: row;
+    justify-content:center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
   }
   
 `
@@ -21,11 +32,33 @@ export const Nav = styled.nav`
   justify-content: space-between;
   width: 100%;
  
+  @media(min-width:768px) {
+    justify-content: flex-end;
+    gap: 3.2rem;
+
+  }
 
  >button{
     max-width: max-content;
     padding: 1rem;
-  
+    
+   
+    &.myRequestes{
+    display: none;
+      @media(min-width:900px) {
+        display: flex;
+      }
+    }
+    &.openButtonRequests{
+      @media (min-width:900px)  {
+        display: none;
+
+      }
+    }
+  @media(min-width:768px) {
+      position: initial;
+      opacity: initial;
+  }
   }
 
 

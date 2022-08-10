@@ -16,17 +16,39 @@ const widthController = WidthController()
 
 export function Carousel({content}) {
   
-   let teste  = 1
+
   return (
     <>
       <Swiper
-        slidesPerView={teste}
-        spaceBetween={30}
+        slidesPerView={1}
+        spaceBetween={10}
         slidesPerGroup={1}
         loop={true}
         loopFillGroupWithBlank={true}
         pagination={{
           clickable: true,
+        }}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+            slidesPerGroup: 2
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+            slidesPerGroup: 3
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 50,
+            slidesPerGroup: 4
+          },
+          1324: {
+            slidesPerView: 5,
+            spaceBetween: 50,
+            slidesPerGroup: 5
+          }
         }}
         navigation={true}
         modules={[Pagination, Navigation]}

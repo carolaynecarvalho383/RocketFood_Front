@@ -21,6 +21,17 @@ export function Home() {
         <Carousel content={< Card />} />
         
       </Section>
+
+      <Section title="Sobre Mesas">
+        <Carousel content={< Card />} />
+        
+      </Section>
+
+      <Section title="Bebidas">
+        <Carousel content={< Card />} />
+        
+      </Section>
+
       <Footer />
     </Container>
   )

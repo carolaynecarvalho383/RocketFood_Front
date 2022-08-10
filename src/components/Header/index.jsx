@@ -1,10 +1,10 @@
-import { Container , Nav} from "./styles";
+import { Container, Nav } from "./styles";
 import { ImExit } from "react-icons/im"
 import { Logo } from "../Logo"
 import { Button } from "../Button"
 import { SearchBar } from "../SearchBar"
 import { AiFillShopping, AiOutlineHeart, } from "react-icons/ai"
-import{FiHexagon} from "react-icons/fi"
+import { FiHexagon } from "react-icons/fi"
 
 export function Header() {
 
@@ -14,7 +14,7 @@ export function Header() {
   return (
     <Container>
       <Logo className="logo"
-        icon={<FiHexagon className="icon2" size={25}/>}
+        icon={<FiHexagon className="icon2" size={25} />}
         title="Food Explorer"
       />
       <SearchBar />
@@ -25,9 +25,14 @@ export function Header() {
         </a>
 
         <Button icon={<AiFillShopping size={25} />}
-          title="(0)" />
+          className="myRequestes"
+          title="Meus Pedidos (0)" />
 
-        <ImExit color="#FFFFFF" size={25}/>
+        <Button icon={<AiFillShopping size={15} />}
+          className="openButtonRequests"
+          title=" (0)" />
+
+        <ImExit color="#FFFFFF" size={25} />
       </Nav>
 
 
