@@ -1,10 +1,10 @@
 import { Container } from "./styles";
 import{FiHexagon} from "react-icons/fi"
 export function Logo ({icon =  <FiHexagon className="icon" 
-/>, title}){
+/>, title,...rest}){
 
   return(
-    <Container>
+    <Container {...rest}>
       {icon}
       
     

@@ -5,13 +5,18 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 1rem;
+  min-height: 100vh;
   >section{
     background: ${({ theme }) => theme.COLORS.SECONDARY_BG};
     padding:  6.4rem 2rem;
     max-width: 48rem;
-  height: 45rem;
+    height: 45rem;
+    
   }
-  
+  @media (min-width:900px) {
+    flex-direction: row;
+    justify-content: space-around;    
+  }
 `
 export const Form = styled.form`
   display: flex;

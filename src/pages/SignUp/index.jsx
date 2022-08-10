@@ -12,7 +12,7 @@ export function SignUp() {
 
   return (
     <Container>
-      <Logo title=" Explorer Food " />
+      <Logo title="Food Explorer" />
       <Section title=" Faça Login">
 
         <Form >
@@ -27,7 +27,7 @@ export function SignUp() {
             placeholder="No mínimo 6 caracteres" />
 
           <Button title="Registrar" />
-          <a href="#">Já tenho uma conta</a>
+          <Link to = "/">Já tenho uma conta</Link>
         </Form>
       </Section>
 

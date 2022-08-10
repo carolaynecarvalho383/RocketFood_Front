@@ -1,4 +1,6 @@
 
+import { Link } from "react-router-dom"
+
 import { Input } from "../../components/Input";
 import { Logo } from "../../components/Logo";
 import { Section } from "../../components/Section";
@@ -10,7 +12,7 @@ export function SignIn() {
 
   return (
     <Container>
-      <Logo title=" Explorer Food " />
+      <Logo title="Food Explorer" className ="main-logo"/>
       <Section title=" Faça Login">
 
         <Form >
@@ -22,7 +24,7 @@ export function SignIn() {
             placeholder="No mínimo 6 caracteres" />
 
           <Button title=" Entrar" />
-          <a href="#">Criar Conta</a>
+          <Link to= "/register">Criar Conta</Link>
         </Form>
       </Section>
 
