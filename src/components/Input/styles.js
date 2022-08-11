@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap:1rem;
+  margin-bottom: 1rem;
   color:${({ theme }) => theme.COLORS.TEXT_COLOR};
   width: 100%;
   >label{
@@ -25,6 +25,6 @@ export const Container = styled.div`
     }
 
   }
-
+  
 
 `

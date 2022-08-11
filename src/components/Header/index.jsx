@@ -5,7 +5,7 @@ import { Logo } from "../Logo"
 import { Button } from "../Button"
 import { SearchBar } from "../SearchBar"
 
-import { AiFillShopping, AiOutlineHeart, } from "react-icons/ai"
+import { AiFillShopping, AiOutlineHeart, AiOutlineUser } from "react-icons/ai"
 import { FiHexagon } from "react-icons/fi"
 
 import { Container, Nav } from "./styles";
@@ -40,7 +40,11 @@ export function Header() {
             title=" (0)" />
         </Link>
 
-        <Link to="/" >
+        <Link to="/profile">
+          <AiOutlineUser size={25} />
+        </Link>
+
+        <Link to="/profile" >
           <ImExit color="#FFFFFF" size={25} />
         </Link>
       </Nav>
