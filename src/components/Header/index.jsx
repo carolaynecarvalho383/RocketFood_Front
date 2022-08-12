@@ -28,13 +28,13 @@ export function Header() {
           <AiOutlineHeart color="#750310" />
           favoritos
         </Link>
-        <Link to="/purchases" >
+        <Link to="/buy" >
           <Button icon={<AiFillShopping size={25} />}
             className="myRequestes"
             title="Meus Pedidos (0)" />
         </Link>
 
-        <Link to="/purchases" >
+        <Link to="/buy" >
           <Button icon={<AiFillShopping size={15} />}
             className="openButtonRequests"
             title=" (0)" />
