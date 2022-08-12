@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const Container = styled.section`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
-  padding: 1rem;
-  padding-top: 8rem;
+  padding: 3rem;
+  gap: 3rem;
   >h2{
     color: ${({ theme})=> theme.COLORS.WHITE};
     margin: 0 auto;

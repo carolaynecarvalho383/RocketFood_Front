@@ -5,6 +5,7 @@ import{Details} from "../pages/Details"
 import{Purchases} from "../pages/Purchases"
 import{Favorites} from "../pages/Favorites"
 import{Profile} from "../pages/Profile"
+import{Address} from "../pages/Address"
 
 
 export function AppRoutes(){
@@ -16,6 +17,7 @@ export function AppRoutes(){
       <Route path="/purchases" element ={<Purchases />}/>
       <Route path="/favorites" element ={<Favorites />}/>
       <Route path="/profile" element ={<Profile />}/>
+      <Route path="/address" element ={<Address />}/>
     </Routes>
   )
 }

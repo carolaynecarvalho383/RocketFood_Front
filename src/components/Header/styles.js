@@ -18,10 +18,7 @@ export const Container = styled.header`
   @media(min-width:768px) {
     flex-direction: row;
     justify-content:center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
+   
   }
   
 `
