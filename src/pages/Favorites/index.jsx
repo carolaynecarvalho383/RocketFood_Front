@@ -1,12 +1,24 @@
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
-import { Container } from "./styles";
+import { Section } from "../../components/Section";
+import { Card } from "../../components/Card";
 
-export function Favorites(){
+import { Container, Gallery } from "./styles";
 
-  return(
+
+export function Favorites() {
+
+  return (
     <Container>
       <Header />
+      <Section>
+        <Gallery>
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </Gallery>
+      </Section>
       <Footer />
     </Container>
   )

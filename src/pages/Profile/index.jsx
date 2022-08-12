@@ -35,7 +35,7 @@ export function Profile() {
           <ul>
             <Link to="/purchases"><li>Pedidos</li></Link>
             <Link to="/address"><li>Endereço</li></Link>
-            <Link to="/"><li>Pagamentos</li></Link>
+            <Link to="/payment"><li>Pagamentos</li></Link>
           </ul>
         </nav>
         <Form>
