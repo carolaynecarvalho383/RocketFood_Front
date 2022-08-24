@@ -10,12 +10,13 @@ export const Container = styled.div`
     background: ${({ theme }) => theme.COLORS.SECONDARY_BG};
     padding:  6.4rem 2rem;
     max-width: 48rem;
-    height: 45rem;
+    height: 65rem;
     
   }
   @media (min-width:900px) {
     flex-direction: row;
     justify-content: space-around;    
+    padding:5vw;
   }
 `
 export const Form = styled.form`

@@ -6,6 +6,7 @@ export const Container = styled.div`
   margin-bottom: 1rem;
   color:${({ theme }) => theme.COLORS.TEXT_COLOR};
   width: 100%;
+  gap: 1rem;
   >label{
     font-family: 'Roboto' ,sans-serif;
     font-style: normal;
