@@ -7,17 +7,20 @@ import {api} from "../services/api"
 export const AuthContext = createContext({});
 
 function AuthProvider ({children}){
-  const  [ data, setData] = useState([])
+  const  [ data, setData] = useState({})
+
+  console.log(data.admin);
 
   async function signIn({email, password}){
     try{
       const response = await api.post("/sessions" , {email, password})
-      const {user , token} = response.data;
+      const {user , token }  = response.data;
+
+      const admin = user.admin === 1
 
       api.defaults.headers.authorization = `Bearer ${token}`;
-      setData({user, token});
+      setData({user, token, admin});
 
-      console.log(token);
 
     }catch (error){
       if(error.response){
@@ -32,6 +35,7 @@ function AuthProvider ({children}){
   return (
     <AuthContext.Provider value={{signIn , user: data.user}}>
       {children}
+      
     </AuthContext.Provider>
   );
 }
