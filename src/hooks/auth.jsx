@@ -1,51 +1,116 @@
 import { createContext } from "react";
+import { useEffect } from "react";
 
-import { useContext , useState } from "react";
+import { useContext, useState } from "react";
 
-import {api} from "../services/api"
+import { api } from "../services/api"
 
 export const AuthContext = createContext({});
 
-function AuthProvider ({children}){
-  const  [ data, setData] = useState({})
+function AuthProvider({ children }) {
+  const [data, setData] = useState({})
 
-  console.log(data.admin);
+  console.log(data);
 
-  async function signIn({email, password}){
-    try{
-      const response = await api.post("/sessions" , {email, password})
-      const {user , token }  = response.data;
+  async function signIn({ email, password }) {
+
+    try {
+      const response = await api.post("/sessions", { email, password })
+      const { user, token } = response.data;
 
       const admin = user.admin === 1
 
-      api.defaults.headers.authorization = `Bearer ${token}`;
-      setData({user, token, admin});
+      localStorage.setItem("@rocketFood:user", JSON.stringify(user));
+      localStorage.setItem("@rocketFood:token", token);
 
+      api.defaults.headers.common['authorization'] = `Bearer ${token}`;
 
-    }catch (error){
-      if(error.response){
+      setData({ user, token, admin });
+
+    } catch (error) {
+      if (error.response) {
         alert(error.response.data.message)
-      }else{
+      } else {
         alert("Não foi passível logar!")
 
         console.error(error);
       }
     }
   }
+
+  async function updateProfile({user, avatarFile}){
+    try{
+      if(avatarFile){
+        const fileUploadForm = new FormData();
+        fileUploadForm.append("avatar", avatarFile);
+
+        const response = await api.patch("/users/avatar", fileUploadForm);
+        user.avatar = response.data.avatar;
+        console.log(avatarFile);
+      }
+
+      await api.put('/users', user);
+      localStorage.setItem("@rocketFood:user", JSON.stringify(user));
+
+      setData({user, token: data.token})
+      alert("Perfil atualizado com sucesso!")
+
+    }catch{
+      if (error.response) {
+        alert(error.response.data.message)
+      } else {
+        alert("Não foi passível logar!")
+
+        console.error(error);
+      }
+    }
+
+  }
+
+  function signOut() {
+
+    localStorage.removeItem("@rocketFood:user");
+    localStorage.removeItem("@rocketFood:token");
+
+    setData({})
+  }
+
+  useEffect(() => {
+
+    const user = localStorage.getItem("@rocketFood:user");
+    const token = localStorage.getItem("@rocketFood:token");
+
+    if (user && token) {
+      api.defaults.headers.common['authorization'] = `Bearer ${token}`;
+
+      setData({
+        token,
+        user: JSON.parse(user),
+      });
+    }
+  }, [])
+
   return (
-    <AuthContext.Provider value={{signIn , user: data.user}}>
+    <AuthContext.Provider value={
+      {
+        signIn,
+        signOut,
+        updateProfile,
+        user: data.user,
+        admin: data.admin,
+      }}>
       {children}
-      
+
     </AuthContext.Provider>
   );
 }
 
-function useAuth(){
-  const context =  useContext(AuthContext);
+function useAuth() {
+  const context = useContext(AuthContext);
   return context;
 }
 
 export {
-  AuthProvider, 
+  AuthProvider,
   useAuth
 }

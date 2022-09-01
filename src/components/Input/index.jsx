@@ -6,6 +6,7 @@ export function Input({ name, value,placeholder ,...rest }) {
     <Container>
       <label htmlFor={name}>{name}</label>
       <input {...rest }
+      value={value}
         placeholder={placeholder}
         id={name}  />
     </Container>

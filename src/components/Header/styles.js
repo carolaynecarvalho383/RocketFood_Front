@@ -58,5 +58,12 @@ export const Nav = styled.nav`
   }
   }
 
+  a > img{
+    width:3rem;
+    height:3rem;
+    background-color: pink;
+    border-radius: 50%;
+    
+  }
 
 `
