@@ -4,6 +4,7 @@ import { Footer } from "../../../components/Footer"
 import { Header } from "../../../components/Header"
 import { Input } from "../../../components/Input"
 import { Section } from "../../../components/Section"
+import { Textarea } from "../../../components/TextArea"
 import { IngredientItem } from "../../../components/IngredientItem"
 import { Container, ImageProduct, Form } from "./styles"
 
@@ -42,28 +43,31 @@ export function AdmMenu() {
           </div>
 
           <div>
-            <div className="ingredients">
-              {
-                ingredients.map((ingredient, index) => (
-                  <IngredientItem
-                    key={index}
-                    value={ingredient}
-                    onClick={() => handleDeleteIngredient(ingredient)} />
-                ))
+            <div className="ingredientContainer">
+              <span>Ingredientes</span>
+              <div className="ingredients">
+                {
+                  ingredients.map((ingredient, index) => (
+                    <IngredientItem
+                      key={index}
+                      value={ingredient}
+                      onClick={() => handleDeleteIngredient(ingredient)} />
+                  ))
 
-              }
-              <IngredientItem isNew
-                placeholder="Adicionar"
-                onChange={e => setNewIngredient(e.target.value)}
-                value={newIngredient}
-                onClick={handleAddIngredient} />
+                }
+                <IngredientItem isNew
+                  placeholder="Adicionar"
+                  onChange={e => setNewIngredient(e.target.value)}
+                  value={newIngredient}
+                  onClick={handleAddIngredient} />
 
+              </div>
             </div>
             <Input name="Preço" placeholder="R$ 00,00" />
           </div>
-          <textarea>
+           <Textarea name="Descrição"
+           placeholder = "Fale brevemente sobre o prato, seus ingredientes e composição" />
 
-          </textarea>
           <Button title="Adicionar Produto" />
 
         </Form>

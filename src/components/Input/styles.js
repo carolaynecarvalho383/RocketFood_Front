@@ -20,6 +20,7 @@ export const Container = styled.div`
   border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
   border-radius: 5px;
   padding: 12px 14px;
+  height: 4.8rem;
   color:${({ theme }) => theme.COLORS.WHITE};
     ::placeholder{
       color:${({ theme }) => theme.COLORS.TEXT_COLOR};
