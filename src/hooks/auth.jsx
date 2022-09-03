@@ -19,6 +19,7 @@ function AuthProvider({ children }) {
       const admin = user.admin === 1
       
       localStorage.setItem("@rocketFood:user", JSON.stringify(user));
+      localStorage.setItem("@rocketFood:admin", JSON.stringify(admin));
       localStorage.setItem("@rocketFood:token", token);
 
       api.defaults.headers.common['authorization'] = `Bearer ${token}`;
@@ -73,6 +74,7 @@ function AuthProvider({ children }) {
     
     localStorage.removeItem("@rocketFood:user");
     localStorage.removeItem("@rocketFood:token");
+    localStorage.removeItem("@rocketFood:admin");
 
     setData({})
   }
@@ -81,6 +83,7 @@ function AuthProvider({ children }) {
 
     const user = localStorage.getItem("@rocketFood:user");
     const token = localStorage.getItem("@rocketFood:token");
+    const admin = localStorage.getItem("@rocketFood:admin");
 
     if (user && token) {
       api.defaults.headers.common['authorization'] = `Bearer ${token}`;
@@ -88,6 +91,7 @@ function AuthProvider({ children }) {
       setData({
         token,
         user: JSON.parse(user),
+        admin: JSON.parse(admin),
       });
     }
   }, [])

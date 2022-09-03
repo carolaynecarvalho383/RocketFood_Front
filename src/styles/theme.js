@@ -14,7 +14,9 @@ export default {
     DARK_BLUE: "#065E7C",
     WHITE_400: "#E5E5E5;",
     WHITE_300: "#E1E1E6",
+    GRAY_700: "#333333",
 
+    
 
     BLACK_300: "#312E38",
 
