@@ -4,6 +4,9 @@ import ReactDOM from 'react-dom/client'
 import { Routes } from './routes'
 
 import { AuthProvider } from './hooks/auth'
+
+//import { FavoritesProvider } from "../../hooks/favorites";
+
 import { ThemeProvider } from 'styled-components'
 import GlobalStyle from './styles/global'
 import theme from './styles/theme'

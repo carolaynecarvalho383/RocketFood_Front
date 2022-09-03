@@ -10,7 +10,6 @@ export const AuthContext = createContext({});
 function AuthProvider({ children }) {
   const [data, setData] = useState({})
 
-  console.log(data);
 
   async function signIn({ email, password }) {
 
@@ -46,7 +45,6 @@ function AuthProvider({ children }) {
 
         const response = await api.patch("/users/avatar", fileUploadForm);
         user.avatar = response.data.avatar;
-        console.log(avatarFile);
       }
 
       await api.put('/users', user);

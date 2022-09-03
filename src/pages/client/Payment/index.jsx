@@ -1,7 +1,7 @@
-import { Button } from "../../components/Button";
-import { Footer } from "../../components/Footer";
-import { Header } from "../../components/Header";
-import { Input } from "../../components/Input";
+import { Button } from "../../../components/Button";
+import { Footer } from "../../../components/Footer";
+import { Header } from "../../../components/Header";
+import { Input } from "../../../components/Input";
 import { Container } from "./styles";
 
 export function Payment() {

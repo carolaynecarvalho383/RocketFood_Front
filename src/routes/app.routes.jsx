@@ -1,18 +1,20 @@
 import { Routes, Route } from "react-router-dom";
 
-import{Home} from "../pages/Home"
-import{Details} from "../pages/Details"
-import{Purchases} from "../pages/Purchases"
-import{Favorites} from "../pages/Favorites"
-import{Profile} from "../pages/Profile"
-import{Address} from "../pages/Address"
-import{Payment} from "../pages/Payment"
-import{Buy} from "../pages/Buy"
+import{Home} from "../pages/client/Home"
+import{Details} from "../pages/client/Details"
+import{Purchases} from "../pages/client/Purchases"
+import{Favorites} from "../pages/client/Favorites"
+import{Profile} from "../pages/client/Profile"
+import{Address} from "../pages/client/Address"
+import{Payment} from "../pages/client/Payment"
+import{Buy} from "../pages/client/Buy"
+
 
 
 export function AppRoutes(){
 
   return(
+    
     <Routes>
       <Route path="/" element ={<Home />}/>
       <Route path="/details/:id" element ={<Details />}/>

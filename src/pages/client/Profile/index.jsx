@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-import { Header } from "../../components/Header";
-import { Footer } from "../../components/Footer";
-import { Section } from "../../components/Section";
-import { Input } from "../../components/Input";
-import { Button } from "../../components/Button";
+import { Header } from "../../../components/Header";
+import { Footer } from "../../../components/Footer";
+import { Section } from "../../../components/Section";
+import { Input } from "../../../components/Input";
+import { Button } from "../../../components/Button";
 
-import { useAuth } from "../../hooks/auth";
-import { api } from "../../services/api";
+import { useAuth } from "../../../hooks/auth";
+import { api } from "../../../services/api";
 
-import  avatarPlaceholder from "../../assets/avatar_placeholder.svg";
+import  avatarPlaceholder from "../../../assets/avatar_placeholder.svg";
 import { Container, Form, Avatar } from "./styles";
 import { Link } from "react-router-dom";
 

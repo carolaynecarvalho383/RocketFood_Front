@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,14 +9,30 @@ import "swiper/css/navigation";
 
 import "./styles.css";
 
+//import {api} from "../../services/api"
 // import required modules
 import { Pagination, Navigation } from "swiper";
-import {WidthController} from "../../controller/WidthController"
-const widthController = WidthController()
 
-export function Carousel({content}) {
-  
+export function Carousel({ content }) {
+  const cont = <SwiperSlide>{content}</SwiperSlide>
 
+  const [card , setCard] = useState([])
+  const [newCard , setNewCard] = useState("")
+
+  async function handleCard() {
+
+    
+    for(let i = 0; i < 4; i++) {
+      setNewCard(cont)
+      setCard(prevState => [...prevState, newCard])
+    }
+    console.log(newCard);
+
+  }
+ 
+  useEffect(() => {
+    handleCard()
+  },[])
   return (
     <>
       <Swiper
@@ -54,15 +70,13 @@ export function Carousel({content}) {
         modules={[Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide>{content}</SwiperSlide>
-        <SwiperSlide>{content}</SwiperSlide>
-        <SwiperSlide>{content}</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        
+          { 
+            newCard
+          /* <SwiperSlide 
+          >{content}</SwiperSlide> */}
+        
+        
       </Swiper>
     </>
   );

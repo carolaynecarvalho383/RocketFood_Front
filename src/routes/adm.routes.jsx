@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import{Adm} from "../pages/Admin"
+import{Adm} from "../pages/Admin/AdminHome"
 
 export function AdmRoutes(){
 
