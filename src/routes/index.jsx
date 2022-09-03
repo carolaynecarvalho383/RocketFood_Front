@@ -9,7 +9,6 @@ import { AdmRoutes } from "./adm.routes";
 export function Routes() {
   const { user, admin } = useAuth()
   
-  console.log(user);
   return (
     <BrowserRouter>
       {

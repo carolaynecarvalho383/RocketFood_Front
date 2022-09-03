@@ -22,7 +22,8 @@ export const Container = styled.div`
   color: #82F3FF;
   }
 
-  >.favorite{
+  >svg,
+  a {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;

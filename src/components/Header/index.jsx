@@ -18,9 +18,8 @@ import { Container, Nav } from "./styles";
 
 export function Header() {
 
-  const { signOut, user, admin } = useAuth()
-  const data = useFavorites()
-  console.log(data);
+  const { signOut, user, admin, } = useAuth()
+  // const data = useFavorites()
 
   const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
@@ -34,11 +33,15 @@ export function Header() {
       />
       <SearchBar />
       <Nav>
-        {admin ?
+        {!admin ?
           <Link to="/favorites">
             <AiOutlineHeart color="#750310" />
-            favoritos
-          </Link> : <Link to="/">aki</Link>}
+            Favoritos
+          </Link> :
+          <Link to="/administrator">
+            <AiOutlineUser />
+            Administrador
+          </Link>}
         <Link to="/buy" >
           <Button icon={<AiFillShopping size={25} />}
             className="myRequestes"

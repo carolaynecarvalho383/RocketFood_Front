@@ -10,7 +10,6 @@ export const AuthContext = createContext({});
 function AuthProvider({ children }) {
   const [data, setData] = useState({})
 
-
   async function signIn({ email, password }) {
 
     try {
@@ -18,7 +17,7 @@ function AuthProvider({ children }) {
       const { user, token } = response.data;
 
       const admin = user.admin === 1
-
+      
       localStorage.setItem("@rocketFood:user", JSON.stringify(user));
       localStorage.setItem("@rocketFood:token", token);
 
@@ -35,6 +34,11 @@ function AuthProvider({ children }) {
         console.error(error);
       }
     }
+  }
+  
+  async function Adm({admin}){
+    user.admin = response.data.admin;
+
   }
 
   async function updateProfile({user, avatarFile}){
@@ -66,7 +70,7 @@ function AuthProvider({ children }) {
   }
 
   function signOut() {
-
+    
     localStorage.removeItem("@rocketFood:user");
     localStorage.removeItem("@rocketFood:token");
 
@@ -96,6 +100,7 @@ function AuthProvider({ children }) {
         updateProfile,
         user: data.user,
         admin: data.admin,
+        
       }}>
       {children}
 

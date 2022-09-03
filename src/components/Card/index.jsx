@@ -1,12 +1,15 @@
 import { Container, Purchases } from "./styles";
-import { AiOutlineHeart, AiOutlinePlus, AiOutlineLine, AiFillHeart } from "react-icons/ai";
+import { AiOutlineHeart, AiOutlinePlus, AiOutlineLine, AiFillHeart, AiOutlineEdit } from "react-icons/ai";
 import { Button } from "../Button";
 import { useState } from "react";
+import { useAuth } from "../../hooks/auth";
+import { Link } from "react-router-dom";
 
 export function Card({ src, title, description, price }) {
 
   const [counter, setCounter] = useState(1)
   const [favorite, setFavorite] = useState(false)
+  const { admin } = useAuth()
 
   function handlePlus() {
     setCounter(counter + 1)
@@ -25,16 +28,22 @@ export function Card({ src, title, description, price }) {
   return (
     <Container>
       {
-        favorite ? <AiFillHeart
-          className="favorite" size={25}
-          color ={"#92000E"}
-          onClick={handleRemoveFavorite}
+        admin ? <Link to="/edit">
+          <AiOutlineEdit
+            size={25}
+          />
+        </Link> :
+          favorite ?
+            <AiFillHeart
+              size={25}
+              color={"#92000E"}
+              onClick={handleRemoveFavorite}
 
-          
-        /> : <AiOutlineHeart
-          className="favorite" size={25}
-          onClick={handleAddFavorite}
-        />
+
+            /> : <AiOutlineHeart
+              size={25}
+              onClick={handleAddFavorite}
+            />
       }
       <img src="" alt="product image" />
       <h3>Product title</h3>
