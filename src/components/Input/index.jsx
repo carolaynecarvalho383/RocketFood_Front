@@ -1,6 +1,6 @@
 import { Container } from "./styles";
 
-export function Input({ name, value,placeholder ,...rest }) {
+export function Input({ name, value,placeholder, outer ,...rest }) {
 
   return (
     <Container>
@@ -8,7 +8,8 @@ export function Input({ name, value,placeholder ,...rest }) {
       <input {...rest }
       value={value}
         placeholder={placeholder}
-        id={name}  />
+        id={name}  />  {outer}
+
     </Container>
   )
 

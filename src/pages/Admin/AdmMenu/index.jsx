@@ -6,12 +6,13 @@ import { Input } from "../../../components/Input";
 import { Section } from "../../../components/Section";
 import { Textarea } from "../../../components/TextArea";
 import { IngredientItem } from "../../../components/IngredientItem";
-import { Container, ImageProduct, Form, ImageFile } from "./styles";
+import { Container, ImageProduct, Form, ImageFile, Select } from "./styles";
 
 import { useNavigate } from 'react-router-dom';
 import { api } from "../../../services/api";
 
 import { AiOutlineUpload } from "react-icons/ai";
+
 export function AdmMenu() {
 
   const [title, setTitle] = useState('')
@@ -125,16 +126,17 @@ export function AdmMenu() {
               name="Preço" type="number"
               placeholder="R$ 00,00" />
 
-             <Input value={category}
-              name="Categoria" placeholder="Ex: Sobremesas" /> 
 
-            <select name="category" onChange={e => setCategory(e.target.value)}>
-              <option value="Pratos Principais">Pratos Principais</option>
-              <option value="Sobremesas">Sobremesas</option>
-              <option value="Bebidas">Sobremesas</option>
-              <option value="Outros">Outros</option>
-            </select>
 
+            <Input value={category} name="Category"
+              placeholder="Selecione uam categoria" className="hide"
+              outer={
+                <select name="category" onChange={e => setCategory(e.target.value)}>
+                  <option value="Pratos Principais">Pratos Principais</option>
+                  <option value="Sobremesas">Sobremesas</option>
+                  <option value="Bebidas">Sobremesas</option>
+                  <option value="Outros">Outros</option>
+                </select>} />
             <Input onChange={e => setInventory(e.target.value)}
               name="Estoque" type="number"
               placeholder="quantia em estoque" />

@@ -27,6 +27,30 @@ export const Container = styled.div`
     }
 
   }
+
+  >select{
+  background: transparent;
+  border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+  border-radius: 5px;
+  padding: 12px 14px;
+  height: 4.8rem;
+  
+  color:${({ theme }) => theme.COLORS.WHITE};
+  :focus{
+    outline: none;
+
+  }
+
+    >option{
+      outline: none;
+    background-color: ${({ theme }) => theme.COLORS.SECONDARY_BG };
+      color:${({ theme }) => theme.COLORS.WHITE_300};
+
+
+
+
+    }
+  }
   
 
 `

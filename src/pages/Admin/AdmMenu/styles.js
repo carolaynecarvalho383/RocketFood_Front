@@ -2,17 +2,12 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   >section{
-    
 
     @media (min-width:850px) {
       padding: 4rem 12.4rem;
     }
   }
-
-
 `
-
-
 export const ImageProduct = styled.label`
   display: flex;
   flex-direction: column;
@@ -117,5 +112,25 @@ export const Form = styled.form`
 }
 }
 
+
+`
+export const Select = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  >div{
+    width: 100%;
+   border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+    border-radius: 5px;
+    color: ${({ theme }) => theme.COLORS.WHITE};
+  }
+
+  >select{
+    background-color: transparent ;
+    border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+    border-radius: 5px;
+    color: ${({ theme }) => theme.COLORS.WHITE};
+  }
 
 `
