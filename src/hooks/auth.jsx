@@ -47,7 +47,7 @@ function AuthProvider({ children }) {
       if(avatarFile){
         const fileUploadForm = new FormData();
         fileUploadForm.append("avatar", avatarFile);
-
+        console.log(fileUploadForm);
         const response = await api.patch("/users/avatar", fileUploadForm);
         user.avatar = response.data.avatar;
       }
@@ -91,7 +91,7 @@ function AuthProvider({ children }) {
       setData({
         token,
         user: JSON.parse(user),
-        admin: JSON.parse(admin),
+        admin: JSON.parse(user),
       });
     }
   }, [])

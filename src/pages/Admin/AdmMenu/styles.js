@@ -43,7 +43,25 @@ export const ImageProduct = styled.label`
 
 
 `
+export const ImageFile = styled.div`
+  min-height: 20rem;
+  border-radius: 5px;
 
+  width: fit-content;
+  height: 100%;
+
+  max-width: 40rem;
+  max-height: 30rem;
+  border: 1px solid ${({ theme }) => theme.COLORS.WHITE_300};
+  >label img{
+    width: 100%;
+    max-height: 30rem;
+    object-fit: fill;
+    border-radius: 5px;
+  }
+
+
+`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;

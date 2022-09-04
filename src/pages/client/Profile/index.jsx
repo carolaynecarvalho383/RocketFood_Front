@@ -25,7 +25,7 @@ export function Profile() {
   const [passwordOld, setPasswordOld] = useState();
 
   const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
-  console.log(avatarUrl);
+  
   const [avatar, setAvatar] = useState(avatarUrl);
   const [avatarFile, setAvatarFile] = useState(null);
 
@@ -39,7 +39,7 @@ export function Profile() {
     await updateProfile({user, avatarFile})
 
   }
-
+  console.log(avatarFile);
   async function handleChangeAvatar(event){
     const file = event.target.files[0];
     setAvatarFile(file);

@@ -7,7 +7,7 @@ export const Container = styled.div`
   color: ${({ theme }) => theme.COLORS.TEXT_COLOR};
   border : ${({ theme, isNew }) => isNew ? `1px dashed ${theme.COLORS.TEXT_COLOR}` : "none"};
   border-radius:1rem;
-  width: 100%;
+  min-width: fit-content;
   height:3.2rem;
   padding: 1rem 1.6rem;
 
