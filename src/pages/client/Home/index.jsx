@@ -17,21 +17,9 @@ export function Home() {
         <h1>Sabores inigualáveis</h1>
         <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
       </Main>
-      <Section title="Pratos Principais">
-        <Carousel content={< Card />} />
-        
-      </Section>
 
-      <Section title="Sobre Mesas">
-        <Carousel content={< Card />} />
-        
+      <Section title="Pratos Principais">        
       </Section>
-
-      <Section title="Bebidas">
-        <Carousel content={< Card />} />
-        
-      </Section>
-
       <Footer />
     </Container>
   )

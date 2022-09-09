@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/auth"
-import { useFavorites } from "../../hooks/favorites";
 
 import { Logo } from "../Logo"
 import { Button } from "../Button"
@@ -19,7 +18,6 @@ import { Container, Nav } from "./styles";
 export function Header() {
 
   const { signOut, user, admin, } = useAuth()
-  // const data = useFavorites()
 
   const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
@@ -67,3 +65,5 @@ export function Header() {
     </Container>
   )
 }
+
+

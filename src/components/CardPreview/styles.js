@@ -36,7 +36,6 @@ export const Container = styled.div`
   }
 
 `
-
 export const Purchases = styled.div`
   display: flex;
   align-items: center;

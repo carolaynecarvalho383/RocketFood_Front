@@ -1,15 +1,17 @@
 import { Container, Purchases } from "./styles";
 import { AiOutlineHeart, AiOutlinePlus, AiOutlineLine, AiFillHeart, AiOutlineEdit } from "react-icons/ai";
 import { Button } from "../Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../../hooks/auth";
-import { Link } from "react-router-dom";
-
-export function Card({ src, title, description, price }) {
-
+import { Link, useNavigate } from "react-router-dom";
+import { api } from "../../services/api";
+export function Card({data, ...rest}) {
   const [counter, setCounter] = useState(1)
   const [favorite, setFavorite] = useState(false)
+
   const { admin } = useAuth()
+
+  const navigate = useNavigate()
 
   function handlePlus() {
     setCounter(counter + 1)
@@ -25,14 +27,29 @@ export function Card({ src, title, description, price }) {
   function handleRemoveFavorite() {
     setFavorite(false)
   }
+
+  function handleDetails(id){
+    navigate(`/edit/${id}`)
+
+  }
+  function handleEditProduct(id){
+    navigate(`/edit/${id}`)
+
+  }
+ 
+
+    
+ 
+
   return (
-    <Container>
+    <Container {...rest}>
       {
-        admin ? <Link to="/edit">
+        admin ? 
           <AiOutlineEdit
             size={25}
+            onClick={()=>{handleEditProduct(data.id)}}
           />
-        </Link> :
+        :
           favorite ?
             <AiFillHeart
               size={25}
@@ -45,10 +62,12 @@ export function Card({ src, title, description, price }) {
               onClick={handleAddFavorite}
             />
       }
-      <img src="" alt="product image" />
-      <h3>Product title</h3>
-      <p>description product</p>
-      <strong>R$ 60,00</strong>
+      <img src={
+        `${api.defaults.baseURL}/files/${data.image}`
+      } alt="product image" />
+      <h3>{data.title}</h3>
+      <p>{data.description}</p>
+      <strong>R${data.price}</strong>
       <Purchases>
         < AiOutlinePlus size={25}
           onClick={handlePlus}

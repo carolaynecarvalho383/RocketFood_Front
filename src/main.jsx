@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom/client'
 import { Routes } from './routes'
 
 import { AuthProvider } from './hooks/auth'
+import { ProductProvider } from './hooks/Product'
 
-//import { FavoritesProvider } from "../../hooks/favorites";
 
 import { ThemeProvider } from 'styled-components'
 import GlobalStyle from './styles/global'
@@ -17,7 +17,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <AuthProvider>
-        <Routes />
+        <ProductProvider>
+          <Routes />
+        </ProductProvider>
       </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>

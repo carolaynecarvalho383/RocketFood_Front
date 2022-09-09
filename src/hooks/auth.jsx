@@ -14,6 +14,7 @@ function AuthProvider({ children }) {
 
     try {
       const response = await api.post("/sessions", { email, password })
+
       const { user, token } = response.data;
 
       const admin = user.admin === 1
@@ -23,8 +24,8 @@ function AuthProvider({ children }) {
       localStorage.setItem("@rocketFood:token", token);
 
       api.defaults.headers.common['authorization'] = `Bearer ${token}`;
-
       setData({ user, token, admin });
+
 
     } catch (error) {
       if (error.response) {
@@ -101,7 +102,6 @@ function AuthProvider({ children }) {
       {
         signIn,
         signOut,
-        updateProfile,
         user: data.user,
         admin: data.admin,
         

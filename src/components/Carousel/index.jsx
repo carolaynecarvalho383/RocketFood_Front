@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { memo, useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,30 +9,18 @@ import "swiper/css/navigation";
 
 import "./styles.css";
 
-//import {api} from "../../services/api"
+import { api } from "../../services/api"
 // import required modules
 import { Pagination, Navigation } from "swiper";
 
-export function Carousel({ content }) {
-  const cont = <SwiperSlide>{content}</SwiperSlide>
+import { useAuth } from "../../hooks/auth";
+import { useProduct } from "../../hooks/Product";
+import { Card } from "../Card";
 
-  const [card , setCard] = useState([])
-  const [newCard , setNewCard] = useState("")
 
-  async function handleCard() {
 
-    
-    for(let i = 0; i < 4; i++) {
-      setNewCard(cont)
-      setCard(prevState => [...prevState, newCard])
-    }
-    console.log(newCard);
-
-  }
- 
-  useEffect(() => {
-    handleCard()
-  },[])
+export function Carousel({ data, ...rest }) {
+  console.log(data);
   return (
     <>
       <Swiper
@@ -70,14 +58,26 @@ export function Carousel({ content }) {
         modules={[Pagination, Navigation]}
         className="mySwiper"
       >
+
+
+        {
+            data.map(product => (
+              <SwiperSlide>
+                <Card
+                  key={product.id}
+                  data={product}
+                />
+              </SwiperSlide>
+            ))
         
-          { 
-            newCard
-          /* <SwiperSlide 
-          >{content}</SwiperSlide> */}
-        
-        
+          }
+
+
+
+
       </Swiper>
     </>
   );
 }
+
+

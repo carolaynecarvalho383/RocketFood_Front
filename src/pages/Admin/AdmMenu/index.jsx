@@ -69,7 +69,7 @@ export function AdmMenu() {
       api.post("/products", fileUploadForm);
 
       alert("Produto adicionado com sucesso")
-      navigate("/");
+      // navigate("/");
 
     } catch (error) {
       alert("Não foi possível adicionar o produto, se o error persistir contate o administrator")
@@ -132,11 +132,12 @@ export function AdmMenu() {
               placeholder="Selecione uam categoria" className="hide"
               outer={
                 <select name="category" onChange={e => setCategory(e.target.value)}>
-                  <option value="Pratos Principais">Pratos Principais</option>
-                  <option value="Sobremesas">Sobremesas</option>
-                  <option value="Bebidas">Sobremesas</option>
-                  <option value="Outros">Outros</option>
+                  <option value="pratosPrincipais">Pratos Principais</option>
+                  <option value="sobremesas">Sobremesas</option>
+                  <option value="bebidas">Bebidas</option>
+                  <option value="outros">Outros</option>
                 </select>} />
+
             <Input onChange={e => setInventory(e.target.value)}
               name="Estoque" type="number"
               placeholder="quantia em estoque" />
