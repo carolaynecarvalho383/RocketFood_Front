@@ -11,22 +11,26 @@ import { useState, useEffect } from "react"
 import { useProduct } from "../../../hooks/Product"
 
 export function Adm() {
-  const { desserts } = useProduct({})
+  const {
+    desserts, mains,
+    drinks, others,
+    loadDessertsCategory,
+    loadMainCategory,
+    loadDrinksCategory,
+    loadOutersCategory,
+  } = useProduct({})
   const { loadProducts, products } = useProduct([])
-  const [dessertCategory, setDessertCategory] = useState([]) // sobremesas
+  // const [dessertCategory, setDessertCategory] = useState([]) // sobremesas
 
   useEffect(() => {
+    loadDrinksCategory()
+    loadDessertsCategory()
+    loadMainCategory()
+    loadOutersCategory()
 
-    async function loadCategory(){
-      const response = await api.get(`/loadProduct/category?category=Sobremesas`)
-      const {allProducts} = response.data
-      setDessertCategory(allProducts)
-    }
-    loadCategory()
-    loadProducts()
 
   }, [])
-  
+
   return (
     <Container>
       <Header />
@@ -35,7 +39,16 @@ export function Adm() {
         <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
       </Main>
       <Section title="Pratos Principais">
-        <Carousel data={dessertCategory}/>
+        <Carousel data={mains} />
+      </Section>
+      <Section title="Sobremesas">
+        <Carousel data={desserts} />
+      </Section>
+      <Section title="Bebidas">
+        <Carousel data={drinks} />
+      </Section>
+      <Section title="Outros">
+        <Carousel data={others} />
       </Section>
 
       <Footer />

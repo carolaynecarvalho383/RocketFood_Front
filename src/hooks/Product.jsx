@@ -9,9 +9,11 @@ export const ProductContext = createContext([])
 function ProductProvider({ children }) {
 
   const [products, setProducts] = useState([])
-  const [dessertCategory, setDessertCategory] = useState([]) // sobremesas
+  const [dessert, setDessert] = useState([])
+  const [main, setMain] = useState([])
+  const [drink, setDrink] = useState([])
+  const [other, setOther] = useState([])
 
- 
 
 
 
@@ -20,27 +22,59 @@ function ProductProvider({ children }) {
       const response = await api.get("/loadProduct");
       const { allProducts } = response.data
       setProducts(allProducts)
-      
+
       console.log(allProducts);
 
-      
+
 
     } catch (error) {
       console.log(error);
     }
   }
+  async function loadDessertsCategory() {
+    const response = await api.get(`/loadProduct/category?category=Sobremesas`)
+    const { allProducts } = response.data
+    setDessert(allProducts)
+    console.log(allProducts);
+  }
+
+  async function loadMainCategory() {
+    const response = await api.get(`/loadProduct/category?category=pratosPrincipais`)
+    const { allProducts } = response.data
+    setMain(allProducts)
+  }
+  async function loadDrinksCategory() {
+    const response = await api.get(`/loadProduct/category?category=bebidas`)
+    const { allProducts } = response.data
+    setDrink(allProducts)
+  }
+  async function loadOutersCategory() {
+    const response = await api.get(`/loadProduct/category?category=outros`)
+    const { allProducts } = response.data
+    setOther(allProducts)
+  }
+  
 
 
+  useEffect(() => {
+   
+  }, [])
 
   return (
     <ProductContext.Provider value={
       {
         loadProducts,
+        loadDessertsCategory,
+        loadMainCategory,
+        loadDrinksCategory,
+        loadOutersCategory,
         products: products,
-        desserts:dessertCategory
-
+        desserts: dessert,
+        mains: main,
+        drinks: drink,
+        others: other
       }}>
-        
+
       {children}
     </ProductContext.Provider>
   )
