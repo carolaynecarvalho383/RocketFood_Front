@@ -11,24 +11,35 @@ import { useState, useEffect } from "react"
 import { useProduct } from "../../../hooks/Product"
 
 export function Adm() {
-  const {
-    desserts, mains,
-    drinks, others,
-    loadDessertsCategory,
-    loadMainCategory,
-    loadDrinksCategory,
-    loadOutersCategory,
-  } = useProduct({})
-  const { loadProducts, products } = useProduct([])
-  // const [dessertCategory, setDessertCategory] = useState([]) // sobremesas
+  // const {
+  //   desserts, mains,
+  //   drinks, others,products,
 
+  //   loadDessertsCategory,
+  //   loadMainCategory,
+  //   loadDrinksCategory,
+  //   loadOutersCategory,
+  //   loadProducts, 
+  // } = useProduct({})
+
+  const [products, setProducts] = useState([]) // sobremesas
+  
   useEffect(() => {
-    loadDrinksCategory()
-    loadDessertsCategory()
-    loadMainCategory()
-    loadOutersCategory()
+    // loadProducts()
+    // loadDrinksCategory()
+    // loadDessertsCategory()
+    // loadMainCategory()
+    // loadOutersCategory()
 
-
+    async function loadProducts() {
+      try {
+        const response = await api.get("/loadProduct");
+        const { allProducts } = response.data
+        setProducts(allProducts)
+      } catch (error) {
+        console.log(error);
+      }
+    }loadProducts()
   }, [])
 
   return (
@@ -39,16 +50,16 @@ export function Adm() {
         <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
       </Main>
       <Section title="Pratos Principais">
-        <Carousel data={mains} />
+        <Carousel data={products} />
       </Section>
       <Section title="Sobremesas">
-        <Carousel data={desserts} />
+        <Carousel data={products} />
       </Section>
       <Section title="Bebidas">
-        <Carousel data={drinks} />
+        <Carousel data={products} />
       </Section>
       <Section title="Outros">
-        <Carousel data={others} />
+        <Carousel data={products} />
       </Section>
 
       <Footer />

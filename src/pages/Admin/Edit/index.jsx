@@ -26,19 +26,17 @@ export function Edit() {
   const [inventory, setInventory] = useState('')
   const [category, setCategory] = useState('')
 
-
   const [imageFile, setImageFile] = useState(null)
-  console.log(imageFile);
-
-
+  
   const [image, setImage] = useState()
-
 
   const [newIngredient, setNewIngredient] = useState('')
 
-  const navigate = useNavigate()
-  const params = useParams()
+console.log(image);
 
+  const navigate = useNavigate()
+  
+  const params = useParams()
 
   function handleChangeImage(event) {
     const file = event.target.files[0];
@@ -46,11 +44,43 @@ export function Edit() {
 
     const imagePreview = URL.createObjectURL(file)
     setImage(imagePreview);
+  }     
+  async function handleAddUpdateProduct(event) {
+
+    event.preventDefault()
+    if (!title || !price || !inventory || !description || category === ""
+    ) {
+      return alert("Todos os Campos são obrigatórios ")
+    }
+  
+    try {
+    
+     api.put(`products/${params.id}`, { 
+      title, price,
+       description, inventory 
+    });
+
+    if(imageFile !== null){
+      const fileUploadForm = new FormData();
+      fileUploadForm.append("image", image);
+
+     api.patch(`products/imageFile/${params.id}`, {image:image});
+    }
+   
+
+      alert("Produto adicionado com sucesso")
+      navigate("/");
+
+    } catch (error) {
+      alert("Não foi possível atualizar o produto, se o error persistir contate o administrator")
+    }
   }
+  
 
   useEffect(() => {
     async function fetchProduct() {
       const response = await api.get(`/products/${params.id}`);
+      
       setData(response.data);
       setTitle(response.data.title);
       setPrice(response.data.price);
@@ -127,7 +157,7 @@ export function Edit() {
             value={description} />
 
           <Button
-            title="Atualizar Produto" />
+            title="Atualizar Produto" onClick={e => handleAddUpdateProduct(e)} />
 
         </Form>
       </Section>

@@ -20,7 +20,6 @@ import { Card } from "../Card";
 
 
 export function Carousel({ data, ...rest }) {
-  console.log(data);
   return (
     <>
       <Swiper

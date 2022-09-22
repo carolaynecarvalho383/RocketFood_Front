@@ -23,7 +23,6 @@ function ProductProvider({ children }) {
       const { allProducts } = response.data
       setProducts(allProducts)
 
-      console.log(allProducts);
 
 
 
@@ -35,7 +34,6 @@ function ProductProvider({ children }) {
     const response = await api.get(`/loadProduct/category?category=Sobremesas`)
     const { allProducts } = response.data
     setDessert(allProducts)
-    console.log(allProducts);
   }
 
   async function loadMainCategory() {
@@ -53,11 +51,11 @@ function ProductProvider({ children }) {
     const { allProducts } = response.data
     setOther(allProducts)
   }
-  
+
 
 
   useEffect(() => {
-   
+
   }, [])
 
   return (

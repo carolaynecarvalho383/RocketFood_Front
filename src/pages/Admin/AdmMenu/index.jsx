@@ -10,10 +10,17 @@ import { Container, ImageProduct, Form, ImageFile, Select } from "./styles";
 
 import { useNavigate } from 'react-router-dom';
 import { api } from "../../../services/api";
+import { useProduct } from "../../../hooks/Product";
 
 import { AiOutlineUpload } from "react-icons/ai";
+import { useEffect } from "react";
 
 export function AdmMenu() {
+
+  // const { products, loadProducts } = useProduct()
+  // console.log(products);
+  // const [newId, setNewId] = useState(products.length)
+  // console.log(newId);
 
   const [title, setTitle] = useState('')
   const [price, setPrice] = useState('')
@@ -49,7 +56,7 @@ export function AdmMenu() {
 
   async function handleAddNewProduct(event) {
     event.preventDefault()
-    if (!title || !price || !category || !inventory || !description || !imageFile
+    if (!title || !price || !category || !inventory || !description || !imageFile || category === ""
     ) {
       return alert("Todos os Campos são obrigatórios ")
     }
@@ -75,6 +82,10 @@ export function AdmMenu() {
       alert("Não foi possível adicionar o produto, se o error persistir contate o administrator")
     }
   }
+
+  // useEffect(() => {
+  //   loadProducts()
+  // }, [])
   return (
     <Container>
       <Header />
@@ -132,6 +143,7 @@ export function AdmMenu() {
               placeholder="Selecione uam categoria" className="hide"
               outer={
                 <select name="category" onChange={e => setCategory(e.target.value)}>
+                  <option value=""></option>
                   <option value="pratosPrincipais">Pratos Principais</option>
                   <option value="sobremesas">Sobremesas</option>
                   <option value="bebidas">Bebidas</option>

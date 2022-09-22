@@ -28,10 +28,7 @@ export function Card({data, ...rest}) {
     setFavorite(false)
   }
 
-  function handleDetails(id){
-    navigate(`/edit/${id}`)
-
-  }
+  
   function handleEditProduct(id){
     navigate(`/edit/${id}`)
 
