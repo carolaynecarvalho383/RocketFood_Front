@@ -63,7 +63,7 @@ export function Carousel({ data, ...rest }) {
             data.map(product => (
               <SwiperSlide>
                 <Card
-                  key={product.id}
+                  key={String(product.id)}
                   data={product}
                 />
               </SwiperSlide>

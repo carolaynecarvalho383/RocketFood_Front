@@ -114,7 +114,7 @@ export function AdmMenu() {
           <div className="ingredientContainer">
             <span>Ingredientes</span>
             <div className="ingredients">
-              {
+              {ingredients &&
                 ingredients.map((ingredient, index) => (
                   <IngredientItem
                     key={index}

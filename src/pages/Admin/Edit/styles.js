@@ -46,6 +46,12 @@ export const ProductPreview = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.65);
   border-radius: 8px;
   margin: 0 auto;
+  >svg{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+  }
   >img{
     width: 100%;
     height: 100%;

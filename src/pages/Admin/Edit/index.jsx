@@ -11,7 +11,7 @@ import { Container, ImageProduct, Form, ProductPreview, } from "./styles";
 import { useNavigate, useParams } from 'react-router-dom';
 import { api } from "../../../services/api";
 
-import { AiOutlineUpload } from "react-icons/ai";
+import { AiOutlineUpload, AiOutlineDelete } from "react-icons/ai";
 import { CardPreview } from "../../../components/CardPreview";
 
 
@@ -27,15 +27,15 @@ export function Edit() {
   const [category, setCategory] = useState('')
 
   const [imageFile, setImageFile] = useState(null)
-  
+
   const [image, setImage] = useState()
 
   const [newIngredient, setNewIngredient] = useState('')
 
-console.log(image);
+  console.log(image);
 
   const navigate = useNavigate()
-  
+
   const params = useParams()
 
   function handleChangeImage(event) {
@@ -44,7 +44,7 @@ console.log(image);
 
     const imagePreview = URL.createObjectURL(file)
     setImage(imagePreview);
-  }     
+  }
   async function handleAddUpdateProduct(event) {
 
     event.preventDefault()
@@ -52,21 +52,22 @@ console.log(image);
     ) {
       return alert("Todos os Campos são obrigatórios ")
     }
-  
+
     try {
-    
-     api.put(`products/${params.id}`, { 
-      title, price,
-       description, inventory 
-    });
 
-    if(imageFile !== null){
-      const fileUploadForm = new FormData();
-      fileUploadForm.append("image", image);
+      api.put(`products/${params.id}`, {
+        title, price,
+        description, inventory
+      });
 
-     api.patch(`products/imageFile/${params.id}`, {image:image});
-    }
-   
+      if (imageFile !== null) {
+        const fileUploadForm = new FormData();
+        fileUploadForm.append("image", image);
+
+        const response = await api.patch(`products/imageFile/${params.id}`,fileUploadForm);
+        data.image = response.data.image
+      }
+
 
       alert("Produto adicionado com sucesso")
       navigate("/");
@@ -75,12 +76,26 @@ console.log(image);
       alert("Não foi possível atualizar o produto, se o error persistir contate o administrator")
     }
   }
-  
 
+  async function handleDeleteProduct(id) {
+    const isOk = confirm("Você realmente deseja deletar esse produto??");
+    if (isOk) {
+      try {
+        await api.delete(`/products/${id}`);
+        alert("Produto deletado com sucesso");
+        navigate("/")
+      } catch (error) {
+        alert("Não foi possível efetuar essa ação!")
+      }
+
+
+    }
+
+  }
   useEffect(() => {
     async function fetchProduct() {
       const response = await api.get(`/products/${params.id}`);
-      
+
       setData(response.data);
       setTitle(response.data.title);
       setPrice(response.data.price);
@@ -88,7 +103,7 @@ console.log(image);
       setInventory(response.data.inventory);
       setCategory(response.data.category);
 
-       const imageUrl =  `${api.defaults.baseURL}/files/${response.data.image}`
+      const imageUrl = `${api.defaults.baseURL}/files/${response.data.image}`
       setImage(imageUrl)
 
     }
@@ -102,7 +117,10 @@ console.log(image);
       <Section>
         <Form >
           <ProductPreview>
-
+            <AiOutlineDelete size={25}
+              color={"red"}
+              title="deletar item"
+              onClick={() => handleDeleteProduct(data.id)} />
             <span>id:{data.id}</span>
             <img src={image} alt="product image" />
             <h3>{title}</h3>
