@@ -5,17 +5,17 @@ import { Header } from "../../../components/Header";
 import { Section } from "../../../components/Section";
 import { TabCard } from "../../../components/TabCard";
 import { Container } from "./styles";
+import { PaymentCard } from "../../../components/PaymentCard";
 
 
 export function Buy() {
   const [purchases, setPurchases] = useState([])
   const sumAll = purchases.map(item => Number(item.totalPrice)).reduce((prev, curr) => prev + curr, 0);
-  const [render ,setRender] = useState('')
-
+  const [render ,setRender] = useState(1)
 
   async function handleDeletePurchase(id) {
     await api.delete(`/purchases/${id}`)
-    setRender('')
+    setRender(prevState => (prevState * 2))
      return
    }
 
@@ -32,7 +32,7 @@ export function Buy() {
     <Container>
       <Header />
       <main>
-        <Section title="Meu pedido">
+        <Section title={purchases.length > 1 ? "Meus pedidos" : "Meu pedido"}>
           <ul>
             {purchases &&
               purchases.map(purchase => (
@@ -48,9 +48,8 @@ export function Buy() {
             </li>
           </ul>
         </Section >
-
         <Section title="Pagamento">
-
+            <PaymentCard />
 
         </Section>
       </main>

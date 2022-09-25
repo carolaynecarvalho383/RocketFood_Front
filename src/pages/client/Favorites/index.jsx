@@ -17,7 +17,7 @@ export function Favorites() {
     }
     fetchFavorites()
 
-  }, [datas])
+  }, [])
   return (
     <Container>
       <Header />

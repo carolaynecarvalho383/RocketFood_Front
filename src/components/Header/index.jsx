@@ -13,15 +13,22 @@ import { ImExit } from "react-icons/im"
 import { FiHexagon } from "react-icons/fi"
 
 import { Container, Nav } from "./styles";
+import { useEffect } from "react";
+import { useState } from "react";
 
 
-export function Header() {
-
+export function Header({addCart}) {
   const { signOut, user, admin, } = useAuth()
-
   const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
+  const [cart, setCart] = useState('')
 
-
+  useEffect(()=>{
+    async function fetchPurchases() {
+      const response = await api.get('/purchases');
+      setCart(response.data.length)
+    }
+    fetchPurchases()
+  },[addCart])
   return (
     <Container>
 
@@ -43,13 +50,13 @@ export function Header() {
         <Link to="/buy" >
           <Button icon={<AiFillShopping size={25} />}
             className="myRequestes"
-            title="Meus Pedidos (0)" />
+            title={`Meus Pedido (${cart})`} />
         </Link>
 
         <Link to="/buy" >
           <Button icon={<AiFillShopping size={15} />}
             className="openButtonRequests"
-            title=" (0)" />
+            title={`(${cart})`} />
         </Link>
 
         <Link to="/profile">

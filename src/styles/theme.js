@@ -6,6 +6,8 @@ export default {
 
     TERNARY_BG: "#0D1D25",
 
+    BG_BUY: "rgba(255, 255, 255, 0.05)",
+    
     TEXT_COLOR: "#7C7C8A",
     TEXT_SECONDARY_COLOR: "#C4C4CC",
 
@@ -16,7 +18,7 @@ export default {
     WHITE_300: "#E1E1E6",
     GRAY_700: "#333333",
 
-    
+    BORDES_COLOR: `rgba(255, 255, 255, 0.1)`,
 
     BLACK_300: "#312E38",
 
