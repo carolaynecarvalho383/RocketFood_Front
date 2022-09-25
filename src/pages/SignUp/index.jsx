@@ -18,7 +18,9 @@ export function SignUp() {
 
   const navigate = useNavigate()
 
-  function handleSignIn() {
+  function handleSignIn(e) {
+    e.preventDefault()
+    
     if (!name || !email || !password) {
       alert("Preencha todos os campos!");
       return;
@@ -60,7 +62,7 @@ export function SignUp() {
             onChange={event => setPassword(event.target.value)} />
 
           <Button title="Registrar"
-            onClick={handleSignIn} />
+            onClick={e=>handleSignIn(e)} />
           <Link to="/">Já tenho uma conta</Link>
         </Form>
       </Section>

@@ -91,7 +91,7 @@ function AuthProvider({ children }) {
       setData({
         token,
         user: JSON.parse(user),
-        admin: JSON.parse(user),
+        admin: JSON.parse(admin),
       });
     }
   }, [])

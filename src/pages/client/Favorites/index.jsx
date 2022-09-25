@@ -4,30 +4,34 @@ import { Section } from "../../../components/Section";
 import { Card } from "../../../components/Card";
 import { api } from "../../../services/api";
 import { Container, Gallery } from "./styles";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 export function Favorites() {
+  const [datas, setDatas] = useState('')
 
-
-  useEffect(()=>{
-    async function handleFavorites(){
+  useEffect(() => {
+    async function fetchFavorites() {
       const response = await api.get("/favorites");
-
-      console.log(response);
+      setDatas(response.data);
     }
-    handleFavorites()
+    fetchFavorites()
 
-},[])
+  }, [datas])
   return (
     <Container>
       <Header />
       <Section>
         <Gallery>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {
+            datas &&
+            datas.map(data => (
+              <Card key={String(data.id)}
+                data={data}
+                isFavorite={true}
+                />
+            ))
+          }
         </Gallery>
       </Section>
       <Footer />

@@ -2,13 +2,15 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 
-
+>section{
+  min-height: 100vh;
+}
 
 
 `
 
 export const Gallery =styled.div`
-
+  max-width: 1000px;
 
   display: grid;
   gap: 1rem;

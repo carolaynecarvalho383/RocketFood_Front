@@ -20,6 +20,7 @@ import { Card } from "../Card";
 
 
 export function Carousel({ data, ...rest }) {
+  
   return (
     <>
       <Swiper
@@ -59,7 +60,7 @@ export function Carousel({ data, ...rest }) {
       >
 
 
-        {
+        { data &&
             data.map(product => (
               <SwiperSlide>
                 <Card

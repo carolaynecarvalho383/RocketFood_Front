@@ -1,7 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
 
+  >img{
+  width: 8rem;
+  height: 8rem;
+  }
   p{
     font-family: 'Poppins';
     font-weight: 500;

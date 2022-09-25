@@ -1,13 +1,18 @@
 import { Container } from "./styles";
+import { api } from "../../services/api";
 
-export function TabCard() {
+
+export function TabCard({ data = {}, ...rest }) {
+
+
 
   return (
     <Container>
-      <img src="" alt="" />
+      <img src={`${api.defaults.baseURL}/files/${data.image}`} alt="" />
       <div>
-        <p>1x salad sushi <small>R$ 80,00</small></p>
-        <button>Excluir</button>
+        <p>{data.amount}x {data.title} <small>R$ {data.totalPrice}</small></p>
+        <button {...rest}
+        >Excluir</button>
       </div>
     </Container>
   )

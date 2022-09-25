@@ -13,7 +13,9 @@ export const Container = styled.div`
   
   border: 1px solid rgba(0, 0, 0, 0.65);
   border-radius: 8px;
-
+  >img{
+    width: 100%;
+  }
   >strong{
   font-weight: 400;
   font-size: 3.2rem;

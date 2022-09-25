@@ -6,10 +6,22 @@ import { Carousel } from "../../../components/Carousel"
 
 
 import { Container, Main } from "./styles"
+import { useEffect, useState } from "react"
+import { api } from "../../../services/api"
 
 
 export function Home() {
+const [data, setData] = useState('')
 
+  useEffect(()=>{
+    async function fetchProducts(){
+      const response = await api.get(`/loadProduct`)
+      setData(response.data.allProducts)
+      
+    } fetchProducts()
+    
+  },[])
+  
   return (
     <Container>
       <Header />
@@ -18,7 +30,8 @@ export function Home() {
         <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
       </Main>
 
-      <Section title="Pratos Principais">        
+      <Section title="Pratos Principais">    
+      <Carousel data={data} />    
       </Section>
       <Footer />
     </Container>
