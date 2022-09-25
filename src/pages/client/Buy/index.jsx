@@ -30,7 +30,7 @@ export function Buy() {
 
   return (
     <Container>
-      <Header />
+      <Header addCart={sumAll} />
       <main>
         <Section title={purchases.length > 1 ? "Meus pedidos" : "Meu pedido"}>
           <ul>
@@ -49,7 +49,9 @@ export function Buy() {
           </ul>
         </Section >
         <Section title="Pagamento">
-            <PaymentCard />
+            <PaymentCard
+            allProducts={purchases}
+             requestPrice={sumAll} />
 
         </Section>
       </main>

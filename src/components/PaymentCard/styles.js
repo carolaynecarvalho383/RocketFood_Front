@@ -2,10 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   max-width: 50rem;
-  min-width: 30rem;
-  /* border: 1px solid ${({ theme }) => theme.COLORS.BORDES_COLOR}; */
-
-
+  min-width: 28rem;
+  width: 100%;
+   
   >div:nth-child(1) {
     display: flex;
     align-items: center;
@@ -22,12 +21,14 @@ export const Container = styled.div`
      border-radius: 0px 0px 8px 0px;
     }
   }
-
-
+  
   >div:nth-child(2){
     padding:1rem ;
     border: 1px solid ${({ theme }) => theme.COLORS.BORDES_COLOR};
-    min-height: 35rem;
+    min-height: 45rem;
+    @media (min-width: 768px) {
+      padding: 5rem 6rem 5rem;
+    }
   }
 `
 
