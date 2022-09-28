@@ -1,8 +1,10 @@
 import { Container, TableContainer } from "./styles";
 
 
-export function Table() {
+export function Table({data}) {
 
+  console.log(data);
+  
   return (
     <Container>
       <TableContainer>
@@ -16,24 +18,22 @@ export function Table() {
         </thead>
 
         <tbody>
-          <tr>
-            <td>Pendente</td>
-            <td>00000004</td>
-            <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
-            <td>20/05 às 18h00</td>
-          </tr>
-          <tr>
-            <td>Preparando</td>
-            <td>00000004</td>
-            <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
-            <td>20/05 às 18h00</td>
-          </tr>
-          <tr>
-            <td>Entregue</td>
-            <td>00000004</td>
-            <td>1 x Salada Radish, 1 x Torradas de Parma, 1 x Chá de Canela, 1 x Suco de Maracujá</td>
-            <td>20/05 às 18h00</td>
-          </tr>
+          { data &&
+            data.map(request =>(
+              <tr>
+              <td>{request.status}</td>
+              <td>0000{request.id}</td>
+              
+                <td>
+
+                </td>
+              
+              <td>{request.created_at}</td>
+            </tr>
+            ))
+          }
+         
+        
         </tbody>
       </TableContainer>
     </Container>

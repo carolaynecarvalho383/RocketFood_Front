@@ -42,10 +42,11 @@ export function Card({ isFavorite = false , data, ...rest }) {
  async function handleAddCart(id){
   await api.post(`/purchases/${id}`,{amount: counter} )
   alert('Produto adicionado no carrinho')
+
   return
  }
   
-
+ 
 
 
   return (
