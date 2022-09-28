@@ -17,7 +17,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 
-export function Header({addCart}) {
+export function Header({addCart, ...rest}) {
   const { signOut, user, admin, } = useAuth()
   const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
   const [cart, setCart] = useState('')
@@ -29,6 +29,7 @@ export function Header({addCart}) {
     }
     fetchPurchases()
   },[addCart])
+
   return (
     <Container>
 
@@ -36,7 +37,7 @@ export function Header({addCart}) {
         icon={<FiHexagon className="icon2" size={25} />}
         title="Food Explorer"
       />
-      <SearchBar />
+      <SearchBar {...rest} />
       <Nav>
         {!admin ?
           <Link to="/favorites">

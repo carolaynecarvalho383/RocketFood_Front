@@ -12,6 +12,9 @@ import { api } from "../../../services/api"
 
 export function Home() {
 const [data, setData] = useState('')
+const [search, setSearch] = useState('')
+console.log(search);
+
 
   useEffect(()=>{
     async function fetchProducts(){
@@ -21,10 +24,22 @@ const [data, setData] = useState('')
     } fetchProducts()
     
   },[])
-  
+
+  useEffect(()=>{
+    async function fetchSearch(){
+      const response = await api.get(`/products?title=${search}&ingredients${search}`)
+      console.log(response.data);
+      setData(response.data)
+
+    }
+     fetchSearch()
+    
+  },[search])
+
   return (
     <Container>
-      <Header />
+      <Header onChange={e=> setSearch(e.target.value)}
+      />
       <Main>
         <h1>Sabores inigualáveis</h1>
         <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
