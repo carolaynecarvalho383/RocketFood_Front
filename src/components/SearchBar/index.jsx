@@ -2,7 +2,7 @@ import { Container } from "./styles";
 import { AiOutlineSearch } from "react-icons/ai"
 import { Input } from "../Input"
 
-export function SearchBar() {
+export function SearchBar({...rest}) {
 
   return (
     <Container>
@@ -11,7 +11,8 @@ export function SearchBar() {
       </label>
       <input id="search"
         type="text"
-        placeholder="Busque opções de pratos" />
+        placeholder="Busque opções de pratos"
+        {...rest} />
     </Container>
   )
 }

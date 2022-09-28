@@ -25,7 +25,13 @@ export function Table({data}) {
               <td>0000{request.id}</td>
               
                 <td>
+                  {
+                    request.requestsItem.map(item =>(
+                     <span>{item.request_amount}X {item.title}    </span>
+                    )
 
+                    )
+                  }
                 </td>
               
               <td>{request.created_at}</td>
