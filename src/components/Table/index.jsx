@@ -1,5 +1,5 @@
 import { Container, TableContainer } from "./styles";
-
+import { BsFillHexagonFill} from "react-icons/bs"
 
 export function Table({data}) {
 
@@ -21,7 +21,12 @@ export function Table({data}) {
           { data &&
             data.map(request =>(
               <tr>
-              <td>{request.status}</td>
+              <td>{request.status == 0 ?
+               <span><BsFillHexagonFill color="#AB222E"  /> Pendente </span>
+               : request.status == 1 ?  <span><BsFillHexagonFill color="#FBA94C"/> Preparando </span> 
+               :  <span><BsFillHexagonFill color="#04D361" /> Entregue </span>}
+               </td>
+
               <td>0000{request.id}</td>
               
                 <td>

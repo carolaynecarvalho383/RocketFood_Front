@@ -27,7 +27,12 @@ export const TableContainer = styled.table`
   }
   >tbody tr td{
   color: ${({ theme })=> theme.COLORS.TEXT_SECONDARY_COLOR};
-  
+  >span{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
   }
 
 
