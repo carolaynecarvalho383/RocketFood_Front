@@ -1,13 +1,18 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
   >section{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    padding-top: 12rem;
+    padding-top: 10rem;
     >  nav ul{
       display: flex;
       align-items: center;
@@ -28,7 +33,7 @@ export const Form = styled.div`
 
 
 export const Avatar = styled.div`
-  margin-top: -9rem;
+  margin-top: -10rem;
   width: 18.6rem;
   height: 18.6rem;
   margin-bottom: 6rem;
