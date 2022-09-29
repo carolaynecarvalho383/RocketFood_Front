@@ -7,7 +7,7 @@ export const Container = styled.div`
   position: relative;
   margin-top: 1rem;
   width: 28rem;
-  height: 40rem;
+  height: 46rem;
   padding: 4rem;
   background-color: rgba(0, 0, 0, 0.32);
   
@@ -15,6 +15,8 @@ export const Container = styled.div`
   border-radius: 8px;
   >img{
     width: 100%;
+    height: 22rem;
+
   }
   >strong{
   font-weight: 400;

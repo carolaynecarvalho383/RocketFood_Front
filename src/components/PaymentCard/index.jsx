@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 export function PaymentCard({ requestPrice, allProducts }) {
   const [pix, setPix] = useState(false)
+  console.log(requestPrice);
 
   const [numberCard, setNumberCard] = useState('')
   const [validationCard, setValidationCard] = useState('')
@@ -19,7 +20,7 @@ export function PaymentCard({ requestPrice, allProducts }) {
   async function handleBuyProducts(e) {
     e.preventDefault()
     try {
-      await api.post('requests', { requestPrice })
+      await api.post('requests', { totalPrice: requestPrice })
       alert("Compar Realizada Com sucesso!")
       navigate('/')
     } catch (e) {
@@ -43,8 +44,8 @@ export function PaymentCard({ requestPrice, allProducts }) {
           <div>
 
             <Button icon={<TbReceipt2 size={25} />}
-             title='Finalizar pagamento'
-             onClick={e=>handleBuyProducts(e)} />
+              title='Finalizar pagamento'
+              onClick={e => handleBuyProducts(e)} />
           </div>
           :
           <div>

@@ -11,13 +11,13 @@ import { PaymentCard } from "../../../components/PaymentCard";
 export function Buy() {
   const [purchases, setPurchases] = useState([])
   const sumAll = purchases.map(item => Number(item.totalPrice)).reduce((prev, curr) => prev + curr, 0);
-  const [render ,setRender] = useState(1)
+  const [render, setRender] = useState(1)
 
   async function handleDeletePurchase(id) {
     await api.delete(`/purchases/${id}`)
     setRender(prevState => (prevState * 2))
-     return
-   }
+    return
+  }
 
   useEffect(() => {
     async function fetchPurchases() {
@@ -25,7 +25,7 @@ export function Buy() {
       setPurchases(response.data)
     }
     fetchPurchases()
-   
+
   }, [render])
 
   return (
@@ -38,8 +38,8 @@ export function Buy() {
               purchases.map(purchase => (
                 <li key={String(purchase.id)}>
                   <TabCard data={purchase}
-                     onClick={() => handleDeletePurchase(purchase.id)}
-                   />
+                    onClick={() => handleDeletePurchase(purchase.id)}
+                  />
                 </li>
               ))
             }
@@ -49,9 +49,9 @@ export function Buy() {
           </ul>
         </Section >
         <Section title="Pagamento">
-            <PaymentCard
+          <PaymentCard
             allProducts={purchases}
-             requestPrice={sumAll} />
+            requestPrice={sumAll} />
 
         </Section>
       </main>
