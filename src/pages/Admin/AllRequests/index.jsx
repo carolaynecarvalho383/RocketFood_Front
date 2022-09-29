@@ -12,7 +12,7 @@ export function AllRequests() {
 
   useEffect(()=>{
     async function fetchPurchases() {
-      const response = await api.get(`/requests`)
+      const response = await api.get(`/requests/all`)
       setData(response.data)
     }
     fetchPurchases()
