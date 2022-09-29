@@ -22,12 +22,36 @@ export const TableContainer = styled.table`
     padding: 1.6rem 2.4rem;
   }
   thead tr th{
-    color: ${({ theme })=> theme.COLORS.WHITE_300};
+    color: ${({ theme }) => theme.COLORS.WHITE_300};
     font-weight: 700;
   }
   >tbody tr td{
-  color: ${({ theme })=> theme.COLORS.TEXT_SECONDARY_COLOR};
-  
+  color: ${({ theme }) => theme.COLORS.TEXT_SECONDARY_COLOR};
+  >span{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+  >  label{
+    padding: 1.2rem  1.6rem;
+    background-color: transparent ;
+    color: ${({ theme }) => theme.COLORS.TEXT_SECONDARY_COLOR};
+    border: 1px solid ${({ theme }) => theme.COLORS.WHITE};
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    >select{
+      background-color: transparent ;
+      color: ${({ theme }) => theme.COLORS.TEXT_SECONDARY_COLOR};
+
+    >option{
+     background-color: ${({ theme }) => theme.COLORS.SECONDARY_BG};
+
+    }
+  }
+
+  }
   }
 
 

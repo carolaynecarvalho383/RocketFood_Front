@@ -4,7 +4,7 @@ import{Adm} from "../pages/Admin/AdminHome";
 import {AdmMenu} from "../pages/Admin/AdmMenu";
 import{Edit} from "../pages/Admin/Edit"
 import{Profile} from "../pages/client/Profile"
-
+import {AllRequests} from "../pages/Admin/AllRequests"
 export function AdmRoutes(){
 
   return(
@@ -13,6 +13,7 @@ export function AdmRoutes(){
       <Route path="/administrator" element ={<AdmMenu />}/>
       <Route path="/edit/:id" element ={<Edit />}/>
       <Route path="/profile" element ={<Profile />}/>
+      <Route path="/allRequests" element ={<AllRequests />}/>
     </Routes>
   )
 }

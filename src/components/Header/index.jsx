@@ -17,18 +17,18 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 
-export function Header({addCart, ...rest}) {
+export function Header({ addCart, ...rest }) {
   const { signOut, user, admin, } = useAuth()
   const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
   const [cart, setCart] = useState('')
 
-  useEffect(()=>{
+  useEffect(() => {
     async function fetchPurchases() {
       const response = await api.get('/purchases');
       setCart(response.data.length)
     }
     fetchPurchases()
-  },[addCart])
+  }, [addCart])
 
   return (
     <Container>
@@ -48,18 +48,31 @@ export function Header({addCart, ...rest}) {
             <AiOutlineUser />
             Administrador
           </Link>}
-        <Link to="/buy" >
-          <Button icon={<AiFillShopping size={25} />}
-            className="myRequestes"
-            title={`Meus Pedido (${cart})`} />
-        </Link>
-
-        <Link to="/buy" >
-          <Button icon={<AiFillShopping size={15} />}
-            className="openButtonRequests"
-            title={`(${cart})`} />
-        </Link>
-
+        {!admin ?
+          <Link to="/buy" >
+            <Button icon={<AiFillShopping size={25} />}
+              className="myRequestes"
+              title={`Meus Pedido (${cart})`} />
+          </Link>     
+          : 
+          <Link to="/allRequests" >
+            <Button icon={<AiFillShopping size={25} />}
+              className="myRequestes"
+              title={`Todos Pedido `} />
+          </Link>
+          }
+          {!admin ?      <Link to="/buy" >
+            <Button icon={<AiFillShopping size={15} />}
+              className="openButtonRequests"
+              title={`(${cart})`} />
+          </Link>
+          :
+            <Link to="/allRequests" >
+            <Button icon={<AiFillShopping size={15} />}
+              className="openButtonRequests"
+               />
+          </Link>
+            }
         <Link to="/profile">
           <img src={avatarUrl} />
         </Link>
