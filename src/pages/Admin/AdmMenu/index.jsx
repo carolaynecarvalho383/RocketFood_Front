@@ -1,4 +1,10 @@
+import { useEffect } from "react";
+import { useProduct } from "../../../hooks/Product";
 import { useState } from "react";
+
+import { api } from "../../../services/api";
+import {ConvertMoneyForNumberString} from "../../../utils/ConvertMoneyForNumberString"
+
 import { Button } from "../../../components/Button";
 import { Footer } from "../../../components/Footer";
 import { Header } from "../../../components/Header";
@@ -6,14 +12,12 @@ import { Input } from "../../../components/Input";
 import { Section } from "../../../components/Section";
 import { Textarea } from "../../../components/TextArea";
 import { IngredientItem } from "../../../components/IngredientItem";
-import { Container, ImageProduct, Form, ImageFile, Select } from "./styles";
 
 import { useNavigate } from 'react-router-dom';
-import { api } from "../../../services/api";
-import { useProduct } from "../../../hooks/Product";
 
 import { AiOutlineUpload } from "react-icons/ai";
-import { useEffect } from "react";
+
+import { Container, ImageProduct, Form, ImageFile, Select } from "./styles";
 
 export function AdmMenu() {
 
@@ -27,7 +31,6 @@ export function AdmMenu() {
   const [description, setDescription] = useState('')
   const [inventory, setInventory] = useState('')
   const [category, setCategory] = useState('')
-
 
   const [image, setImage] = useState()
   const [imageFile, setImageFile] = useState(null)
@@ -66,7 +69,7 @@ export function AdmMenu() {
     try {
       const fileUploadForm = new FormData();
       fileUploadForm.append("title", title);
-      fileUploadForm.append("price", price);
+      fileUploadForm.append("price", ConvertMoneyForNumberString(price));
       fileUploadForm.append("description", description);
       fileUploadForm.append("inventory", inventory);
       fileUploadForm.append("category", category);
@@ -135,6 +138,7 @@ export function AdmMenu() {
 
             <Input onChange={e => setPrice(e.target.value)}
               name="Preço" type="number"
+              title ="separe a o real dos centavos por virgula"
               placeholder="R$ 00,00" />
 
 

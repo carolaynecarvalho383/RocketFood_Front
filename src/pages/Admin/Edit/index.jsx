@@ -6,13 +6,16 @@ import { Input } from "../../../components/Input";
 import { Section } from "../../../components/Section";
 import { Textarea } from "../../../components/TextArea";
 import { IngredientItem } from "../../../components/IngredientItem";
+import { CardPreview } from "../../../components/CardPreview";
+
 import { Container, ImageProduct, Form, ProductPreview, } from "./styles";
 
 import { useNavigate, useParams } from 'react-router-dom';
 import { api } from "../../../services/api";
+import {ConvertNumberStringForMoney} from '../../../utils/ConvertNumberStringForMoney'
+import {ConvertMoneyForNumberString} from '../../../utils/ConvertMoneyForNumberString' 
 
 import { AiOutlineUpload, AiOutlineDelete } from "react-icons/ai";
-import { CardPreview } from "../../../components/CardPreview";
 
 
 
@@ -22,7 +25,7 @@ export function Edit() {
   const [title, setTitle] = useState(data.title)
   const [price, setPrice] = useState(data.price)
   const [description, setDescription] = useState(data.description)
-
+  console.log(price);
   const [inventory, setInventory] = useState('')
   const [category, setCategory] = useState('')
 
@@ -54,7 +57,7 @@ export function Edit() {
     }
 
     try {
-
+      
       api.put(`products/${params.id}`, {
         title, price,
         description, inventory
@@ -125,7 +128,7 @@ export function Edit() {
             <img src={image} alt="product image" />
             <h3>{title}</h3>
             <p>{description}</p>
-            <strong>R${price}</strong>
+            <strong>{ConvertNumberStringForMoney(price)}</strong>
             <span>categoria : {category}</span>
 
             <span>estoque : {inventory}</span>
@@ -149,10 +152,10 @@ export function Edit() {
 
           <div>
 
-            <Input onChange={e => setPrice(e.target.value)}
+            <Input onChange={e => setPrice(ConvertMoneyForNumberString(e.target.value))}
               name="Preço" type="number"
               placeholder="R$ 00,00"
-              value={price} />
+               />
 
             <Input value={category} name="Category"
               placeholder="Selecione uam categoria" className="hide"

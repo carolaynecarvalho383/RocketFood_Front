@@ -6,7 +6,7 @@ import { useAuth } from "../../hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 
-
+import {ConvertNumberStringForMoney} from '../../utils/ConvertNumberStringForMoney'
 
 export function Card({ isFavorite = false , data, ...rest }) {
   const [counter, setCounter] = useState(1)
@@ -75,7 +75,7 @@ export function Card({ isFavorite = false , data, ...rest }) {
       } alt="product image" />
       <h3>{data.title}</h3>
       <p>{data.description}</p>
-      <strong>R${data.price}</strong>
+      <strong>{ConvertNumberStringForMoney(data.price)}</strong>
       <Purchases>
         < AiOutlinePlus size={25}
           onClick={handlePlus}

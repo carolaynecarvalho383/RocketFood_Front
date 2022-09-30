@@ -1,9 +1,12 @@
-import { Container, Purchases } from "./styles";
-import { AiOutlineHeart, AiOutlinePlus, AiOutlineLine } from "react-icons/ai";
-import { Button } from "../Button";
 import { useState } from "react";
 import { useAuth } from "../../hooks/auth";
 
+import { Button } from "../Button";
+import { AiOutlineHeart, AiOutlinePlus, AiOutlineLine } from "react-icons/ai";
+
+import {ConvertNumberStringForMoney} from '../../utils/ConvertNumberStringForMoney'
+
+import { Container, Purchases } from "./styles";
 
 export function CardPreview({ data, ...rest}) {
 
@@ -27,7 +30,7 @@ export function CardPreview({ data, ...rest}) {
       }      <img src={data.image} alt="product image" />
       <h3>{data.title}</h3>
       <p>{data.description}</p>
-      <strong>R${data.price}</strong>
+      <strong>{ConvertNumberStringForMoney(data.price)}</strong>
       {!admin ? <div className="ingredient-container">
         <div className="ingredient">
           <img src="" alt="" />

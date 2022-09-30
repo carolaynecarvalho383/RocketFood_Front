@@ -3,6 +3,7 @@ import { useState } from "react";
 
 
 import { api } from "../../services/api";
+import {ConvertNumberStringForMoney} from '../../utils/ConvertNumberStringForMoney' 
 
 import { BsFillHexagonFill, BsTruckFlatbed } from "react-icons/bs"
 import { Container, TableContainer } from "./styles";
@@ -73,7 +74,7 @@ export function Table({ data }) {
                   }
                 </td>
 
-                <td>R${String(`${request.totalPrice},`).padEnd(5, '0')}</td>
+                <td>{ConvertNumberStringForMoney(request.totalPrice)}</td>
                 <td>{request.created_at}</td>
               </tr>
             ))

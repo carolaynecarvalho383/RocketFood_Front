@@ -6,10 +6,10 @@ import { TbReceipt2 } from "react-icons/tb"
 import { useState } from "react";
 import { api } from "../../services/api";
 import { useNavigate } from "react-router-dom";
+import {ConvertMoneyForNumberString} from "../../utils/ConvertMoneyForNumberString"
 
 export function PaymentCard({ requestPrice, allProducts }) {
   const [pix, setPix] = useState(false)
-  console.log(requestPrice);
 
   const [numberCard, setNumberCard] = useState('')
   const [validationCard, setValidationCard] = useState('')
@@ -20,7 +20,7 @@ export function PaymentCard({ requestPrice, allProducts }) {
   async function handleBuyProducts(e) {
     e.preventDefault()
     try {
-      await api.post('requests', { totalPrice: requestPrice })
+      await api.post('requests', { totalPrice:ConvertMoneyForNumberString(requestPrice) })
       alert("Compar Realizada Com sucesso!")
       navigate('/')
     } catch (e) {

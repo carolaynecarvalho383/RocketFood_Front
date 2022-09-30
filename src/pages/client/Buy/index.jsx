@@ -7,6 +7,7 @@ import { TabCard } from "../../../components/TabCard";
 import { Container } from "./styles";
 import { PaymentCard } from "../../../components/PaymentCard";
 
+import {ConvertNumberStringForMoney} from "../../../utils/ConvertNumberStringForMoney"
 
 export function Buy() {
   const [purchases, setPurchases] = useState([])
@@ -44,7 +45,7 @@ export function Buy() {
               ))
             }
             <li>
-              <span>Total: R${sumAll}</span>
+              <span>Total:{ConvertNumberStringForMoney(sumAll)}</span>
             </li>
           </ul>
         </Section >
