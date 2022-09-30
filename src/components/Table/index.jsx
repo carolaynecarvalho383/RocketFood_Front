@@ -7,16 +7,24 @@ import {ConvertNumberStringForMoney} from '../../utils/ConvertNumberStringForMon
 
 import { BsFillHexagonFill, BsTruckFlatbed } from "react-icons/bs"
 import { Container, TableContainer } from "./styles";
+import { Link, useNavigate } from "react-router-dom";
 
 export function Table({ data }) {
   const { admin } = useAuth()
   const [status, setStatus] = useState('')
+
+  const navigate = useNavigate()
+
 
   async function handlePatchStatus(id, value) {
     const isOK = window.confirm("Deseja alterar o status de comprar?")
     if (isOK) {
       await api.patch(`/requests/${id}`, { status: value })
     }
+  }
+
+  function handleRequestDetails(id){
+    navigate(`/requestDetails/${id}`)
   }
 
 
@@ -62,7 +70,8 @@ export function Table({ data }) {
                   </td>
 
                 }
-                <td>0000{request.id}</td>
+                
+                <td onClick = {()=> handleRequestDetails(request.id)}>0000{request.id}</td>
 
                 <td>
                   {
