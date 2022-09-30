@@ -8,6 +8,7 @@ import{Profile} from "../pages/client/Profile"
 import{Address} from "../pages/client/Address"
 import{Payment} from "../pages/client/Payment"
 import{Buy} from "../pages/client/Buy"
+import{RequestDetails} from "../pages/client/RequestDetails"
 
 
 
@@ -24,6 +25,7 @@ export function AppRoutes(){
       <Route path="/address" element ={<Address />}/>
       <Route path="/payment" element ={<Payment />}/>
       <Route path="/buy" element ={<Buy />}/>
+      <Route path="/requestDetails/:id" element ={<RequestDetails />}/>
     </Routes>
   )
 }

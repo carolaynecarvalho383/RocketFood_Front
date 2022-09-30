@@ -27,6 +27,12 @@ export const TableContainer = styled.table`
   }
   >tbody tr td{
   color: ${({ theme }) => theme.COLORS.TEXT_SECONDARY_COLOR};
+  :nth-child(2){
+    cursor: pointer;
+    :hover{
+      font-size: 1.8rem;
+    }
+  }
   >span{
     display: flex;
     flex-direction: row;
