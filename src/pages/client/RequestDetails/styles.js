@@ -42,7 +42,36 @@ export const Container = styled.div`
 
 
 export const StatusContainer = styled.div`
+ max-width: 50rem;
+  min-width: 28rem;
+  width: 100%;
 
+  >div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px 8px 0px 0px;
+    padding: 2rem;
+    border: 1px solid ${({ theme }) => theme.COLORS.BORDES_COLOR};
+    font-size: 2rem;
+  }
+  
+  >div:nth-child(2){
+    padding:1rem ;
+    border: 1px solid ${({ theme }) => theme.COLORS.BORDES_COLOR};
+    min-height: 45rem;
+
+
+    @media (min-width: 768px) {
+      padding: 5rem 6rem 5rem;
+    }
+    >div{
+      display: flex;
+      align-items: center;
+     flex-direction: column;
+     gap: 2rem;
+    }
+  }
 
 
 `
