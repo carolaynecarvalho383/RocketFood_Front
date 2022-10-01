@@ -27,7 +27,7 @@ export const Container = styled.div`
   }
 
   >svg,
-  a {
+  a:first-child {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;

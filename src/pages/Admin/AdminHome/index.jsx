@@ -23,7 +23,7 @@ export function Adm() {
   // } = useProduct({})
 
   const [products, setProducts] = useState([]) // sobremesas
-  
+  const [search , setSearch] = useState('') 
   useEffect(() => {
     // loadProducts()
     // loadDrinksCategory()
@@ -42,9 +42,20 @@ export function Adm() {
     }loadProducts()
   }, [])
 
+  useEffect(()=>{
+    async function fetchSearch(){
+      const response = await api.get(`/products?title=${search}&ingredients${search}`)
+      console.log(response.data);
+      setProducts(response.data)
+
+    }
+     fetchSearch()
+    
+  },[search])
+
   return (
     <Container>
-      <Header />
+      <Header onChange={e=> setSearch(e.target.value)}/>
       <Main>
         <h1>Sou ADM</h1>
         <p>Sinta o cuidado do preparo com ingredientes selecionados</p>

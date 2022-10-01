@@ -21,8 +21,6 @@ export function Card({ isFavorite = false , data, ...rest }) {
     setCounter(counter - 1)
     counter <= 1 ? setCounter(1) : setCounter(counter - 1)
   }
-
-
   async function handleAddFavorite(id) {
     setFavorite(true)
      await api.post(`/favorites/${id}`)
@@ -33,21 +31,18 @@ export function Card({ isFavorite = false , data, ...rest }) {
     await api.delete(`/favorites/${id}`)
 
   }
-
   function handleEditProduct(id) {
     navigate(`/edit/${id}`)
 
   }
-
  async function handleAddCart(id){
   await api.post(`/purchases/${id}`,{amount: counter} )
   alert('Produto adicionado no carrinho')
-
   return
  }
-  
- 
-
+  function handlePreview(id) {
+    navigate(`/requestDetails/${id}`)
+  }
 
   return (
     <Container {...rest}>
@@ -70,10 +65,15 @@ export function Card({ isFavorite = false , data, ...rest }) {
               onClick={() => handleAddFavorite(data.id)}
             />
       }
+            <Link to ={`/details/${data.id}`}>
+
       <img src={
         `${api.defaults.baseURL}/files/${data.image}`
-      } alt="product image" />
+      } alt="product image" />        </Link>
+
+       <Link to ={`/details/${data.id}`}>
       <h3>{data.title}</h3>
+        </Link>
       <p>{data.description}</p>
       <strong>{ConvertNumberStringForMoney(data.price)}</strong>
       <Purchases>

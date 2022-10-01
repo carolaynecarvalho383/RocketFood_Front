@@ -1,14 +1,18 @@
 import { useState } from "react";
 import { useAuth } from "../../hooks/auth";
 
+import { api } from "../../services/api";
+
 import { Button } from "../Button";
+import { IngredientsContainer } from "../IngredientsContainer";
+import { Section } from "../Section";
 import { AiOutlineHeart, AiOutlinePlus, AiOutlineLine } from "react-icons/ai";
 
-import {ConvertNumberStringForMoney} from '../../utils/ConvertNumberStringForMoney'
+import { ConvertNumberStringForMoney } from '../../utils/ConvertNumberStringForMoney'
 
-import { Container, Purchases } from "./styles";
+import { Container, Purchases, DetailsContainer } from "./styles";
 
-export function CardPreview({ data, ...rest}) {
+export function CardPreview({ data, ...rest }) {
 
   const [amount, setAmount] = useState(1)
   const { admin } = useAuth()
@@ -24,41 +28,36 @@ export function CardPreview({ data, ...rest}) {
 
   return (
     <Container>
-      {!admin ?
-        <AiOutlineHeart className="favorite" size={25} />
-        : <span>id:{data.id}</span>
-      }      <img src={data.image} alt="product image" />
-      <h3>{data.title}</h3>
-      <p>{data.description}</p>
-      <strong>{ConvertNumberStringForMoney(data.price)}</strong>
-      {!admin ? <div className="ingredient-container">
-        <div className="ingredient">
-          <img src="" alt="" />
-          <p>tomate</p>
-        </div>
-        <div className="ingredient">
-          <img src="" alt="" />
-          <p>alfa</p>
-        </div>
-      </div> : <span>categoria : {data.category}</span>
-      }
+        <img src={`${api.defaults.baseURL}/files/${data.image}`} alt="product image" />
+        <DetailsContainer>
+          <div>
+            <h3>{data.title}</h3>
+            <p>{data.description}</p>
+          </div>
+          <IngredientsContainer />
+          <div>
+            <strong>{ConvertNumberStringForMoney(data.price)}</strong>
 
-      {!admin ? <Purchases>
-        <div>
-
-          < AiOutlinePlus size={25}
-            className="plus"
-            onClick={handlePlus} />
-          {amount}
-          <AiOutlineLine size={25}
-            onClick={handleLess}
-            className="less" />
-
-        </div>
-        <Button title=" Incluir" />
-      </Purchases> :
-        <span>estoque : {data.inventory}</span>
-      }
+            {!admin ? <Purchases>
+              <div>
+                < AiOutlinePlus size={25}
+                  className="plus"
+                  onClick={handlePlus} />
+                {amount}
+                <AiOutlineLine size={25}
+                  onClick={handleLess}
+                  className="less" />
+              </div>
+              <Button title=" Incluir" />
+            </Purchases>
+              :
+              <Purchases>
+                <span>id:{data.id}</span>
+                <span>categoria : {data.category}</span>
+                <span>estoque : {data.inventory}</span>
+              </Purchases>}
+          </div>
+        </DetailsContainer>
     </Container>
   )
 }
