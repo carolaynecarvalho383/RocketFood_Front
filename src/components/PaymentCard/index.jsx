@@ -10,7 +10,9 @@ import {ConvertMoneyForNumberString} from "../../utils/ConvertMoneyForNumberStri
 
 export function PaymentCard({ requestPrice, allProducts }) {
   const [pix, setPix] = useState(false)
+  const products_id = allProducts.map(id => id.product_id)
 
+  console.log(products_id);
   const [numberCard, setNumberCard] = useState('')
   const [validationCard, setValidationCard] = useState('')
   const [cvc, setCvc] = useState('')

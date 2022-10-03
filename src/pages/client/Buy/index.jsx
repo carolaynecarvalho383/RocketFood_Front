@@ -13,7 +13,7 @@ export function Buy() {
   const [purchases, setPurchases] = useState([])
   const sumAll = purchases.map(item => Number(item.totalPrice)).reduce((prev, curr) => prev + curr, 0);
   const [render, setRender] = useState(1)
-
+  
   async function handleDeletePurchase(id) {
     await api.delete(`/purchases/${id}`)
     setRender(prevState => (prevState * 2))
