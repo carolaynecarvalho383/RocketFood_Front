@@ -1,6 +1,4 @@
 
-
-
 import { Container } from "./styles";
 import { useEffect } from "react";
 import { api } from "../../services/api";
@@ -8,12 +6,10 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { IngredientImg } from "../IngredientImg";
 
-
 export function IngredientsContainer() {
   const [data, setData] = useState([])
   const params = useParams()
 
-  console.log(data);
   useEffect(() => {
     async function fetchIngredients() {
       const response = await api.get(`/ingredients/${params.id}/`)

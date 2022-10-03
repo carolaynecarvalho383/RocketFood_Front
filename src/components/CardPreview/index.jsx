@@ -24,40 +24,44 @@ export function CardPreview({ data, ...rest }) {
     setAmount(amount - 1)
     counter <= 1 ? setAmount(1) : setAmount(counter - 1)
   }
-
-
+  async function handleAddCart(id) {
+    await api.post(`/purchases/${id}`, { amount })
+    alert('Produto adicionado no carrinho')
+    return
+  }
   return (
     <Container>
-        <img src={`${api.defaults.baseURL}/files/${data.image}`} alt="product image" />
-        <DetailsContainer>
-          <div>
-            <h3>{data.title}</h3>
-            <p>{data.description}</p>
-          </div>
-          <IngredientsContainer />
-          <div>
-            <strong>{ConvertNumberStringForMoney(data.price)}</strong>
+      <img src={`${api.defaults.baseURL}/files/${data.image}`} alt="product image" />
+      <DetailsContainer>
+        <div>
+          <h3>{data.title}</h3>
+          <p>{data.description}</p>
+        </div>
+        <IngredientsContainer />
+        <div>
+          <strong>{ConvertNumberStringForMoney(data.price)}</strong>
 
-            {!admin ? <Purchases>
-              <div>
-                < AiOutlinePlus size={25}
-                  className="plus"
-                  onClick={handlePlus} />
-                {amount}
-                <AiOutlineLine size={25}
-                  onClick={handleLess}
-                  className="less" />
-              </div>
-              <Button title=" Incluir" />
-            </Purchases>
-              :
-              <Purchases>
-                <span>id:{data.id}</span>
-                <span>categoria : {data.category}</span>
-                <span>estoque : {data.inventory}</span>
-              </Purchases>}
-          </div>
-        </DetailsContainer>
+          {!admin ? <Purchases>
+            <div>
+              < AiOutlinePlus size={25}
+                className="plus"
+                onClick={handlePlus} />
+              {amount}
+              <AiOutlineLine size={25}
+                onClick={handleLess}
+                className="less" />
+            </div>
+            <Button title=" Incluir"
+              onClick={() => handleAddCart(data.id)} />
+          </Purchases>
+            :
+            <Purchases>
+              <span>id:{data.id}</span>
+              <span>categoria : {data.category}</span>
+              <span>estoque : {data.inventory}</span>
+            </Purchases>}
+        </div>
+      </DetailsContainer>
     </Container>
   )
 }
