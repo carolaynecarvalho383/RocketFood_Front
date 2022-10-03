@@ -72,9 +72,10 @@ export function AdmMenu() {
       fileUploadForm.append("price", ConvertMoneyForNumberString(price));
       fileUploadForm.append("description", description);
       fileUploadForm.append("inventory", inventory);
+      fileUploadForm.append("image", imageFile);
+      
       fileUploadForm.append("category", category);
       fileUploadForm.append("ingredients", JSON.stringify(ingredients));
-      fileUploadForm.append("image", imageFile);
 
       api.post("/products", fileUploadForm);
 

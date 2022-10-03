@@ -5,7 +5,7 @@ export const Container = styled.div`
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 100vh;
+   min-height: 100vh;
 
   >section{
     position: relative;

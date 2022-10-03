@@ -20,22 +20,22 @@ import { AiOutlineUpload, AiOutlineDelete } from "react-icons/ai";
 
 
 export function Edit() {
-  const [data, setData] = useState({})
 
+  const [data, setData] = useState({})
   const [title, setTitle] = useState(data.title)
   const [price, setPrice] = useState(data.price)
   const [description, setDescription] = useState(data.description)
-  console.log(price);
+
   const [inventory, setInventory] = useState('')
   const [category, setCategory] = useState('')
 
   const [imageFile, setImageFile] = useState(null)
 
-  const [image, setImage] = useState()
+  const [image, setImage] = useState(imageFile)
 
   const [newIngredient, setNewIngredient] = useState('')
 
-  console.log(image);
+console.log(imageFile);
 
   const navigate = useNavigate()
 
@@ -55,25 +55,29 @@ export function Edit() {
     ) {
       return alert("Todos os Campos são obrigatórios ")
     }
+    const fileUploadForm = new FormData();
+
+    fileUploadForm.append("title", title);
+    fileUploadForm.append("price", ConvertMoneyForNumberString(price));
+    fileUploadForm.append("description", description);
+    fileUploadForm.append("inventory", inventory);
+    fileUploadForm.append("category", category);
+    //fileUploadForm.append("image", image);
+    
 
     try {
       
-      api.put(`products/${params.id}`, {
-        title, price,
-        description, inventory
-      });
+      api.put(`/products/${params.id}`, fileUploadForm);
 
       if (imageFile !== null) {
         const fileUploadForm = new FormData();
-        fileUploadForm.append("image", image);
-
-        const response = await api.patch(`products/imageFile/${params.id}`,fileUploadForm);
-        data.image = response.data.image
+        fileUploadForm.append("image", imageFile);
+        api.patch(`products/imageFile/${params.id}`,fileUploadForm);
       }
 
 
       alert("Produto adicionado com sucesso")
-      navigate("/");
+      //navigate("/");
 
     } catch (error) {
       alert("Não foi possível atualizar o produto, se o error persistir contate o administrator")

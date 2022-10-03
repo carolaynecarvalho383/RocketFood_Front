@@ -15,7 +15,7 @@ import peach from "../../assets/ingredients/peach.svg";
 import almonds from "../../assets/ingredients/almonds.svg";
 import eggWhite from "../../assets/ingredients/eggWhite.svg";
 import apricot from "../../assets/ingredients/apricot.svg";
-import coffee from "../../assets/ingredients/coffee.svg";
+import cafe from "../../assets/ingredients/cafe.svg";
 import passionFruit from "../../assets/ingredients/passionFruit.svg";
 import cinnamon from "../../assets/ingredients/cinnamon.svg";
 import anise from "../../assets/ingredients/anise.svg";
@@ -29,27 +29,30 @@ import { api } from "../../services/api";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 
-export function IngredientsContainer() {
-  const [data, setData] = useState('')
-  const params = useParams()
+const ingredients = [cafe]
 
+export function IngredientsContainer() {
+  const [data, setData] = useState([])
+  const params = useParams()
 
   useEffect(() => {
     async function fetchIngredients() {
       const response = await api.get(`/ingredients/${params.id}/`)
       setData(response.data)
-    }fetchIngredients()
-  },[])
+    } fetchIngredients()
+  }, [])
   return (
     <Container>
-     { data &&
-     data.map(ingredient => (
-      <div>
-        <img src={eggWhite} alt="" />
-        <span>{ingredient.ingredientName}</span>
-      </div>
-     ))}
-    
+      {data &&
+        data.map(ingredient => (
+          <div>
+            <img src={ingredients.filter(name => {
+              const image = name.toLowerCase().indexOf(`/src/assets/ingredients/${ingredient.ingredientName}.svg`) !== -1
+              return image
+            })} alt={`imagem de ${ingredient.ingredientName}`} />
+            <span>{ingredient.ingredientName}</span>
+          </div>
+        ))}
     </Container>
   )
 

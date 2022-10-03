@@ -13,7 +13,6 @@ import { api } from "../../../services/api"
 export function Home() {
 const [data, setData] = useState('')
 const [search, setSearch] = useState('')
-console.log(search);
 
 
   useEffect(()=>{

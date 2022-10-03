@@ -24,6 +24,7 @@ export function Adm() {
 
   const [products, setProducts] = useState([]) // sobremesas
   const [search , setSearch] = useState('') 
+  
   useEffect(() => {
     // loadProducts()
     // loadDrinksCategory()
@@ -44,10 +45,8 @@ export function Adm() {
 
   useEffect(()=>{
     async function fetchSearch(){
-      const response = await api.get(`/products?title=${search}&ingredients${search}`)
-      console.log(response.data);
+      const response = await api.get(`/products?title=${search}&ingredients=${search}`)
       setProducts(response.data)
-
     }
      fetchSearch()
     

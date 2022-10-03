@@ -27,7 +27,7 @@ export function Profile() {
   const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
   const [avatar, setAvatar] = useState(avatarUrl);
   const [avatarFile, setAvatarFile] = useState(null);
-  console.log(avatar);
+  
   async function handleUpdate() {
     const user = {
       name,
