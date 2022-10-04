@@ -80,7 +80,7 @@ export function AdmMenu() {
       api.post("/products", fileUploadForm);
 
       alert("Produto adicionado com sucesso")
-      // navigate("/");
+       navigate("/");
 
     } catch (error) {
       alert("Não foi possível adicionar o produto, se o error persistir contate o administrator")

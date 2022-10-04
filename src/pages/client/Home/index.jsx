@@ -64,9 +64,10 @@ export function Home() {
         <Carousel data={drinks} />
       </Section>
 
-      <Section title="Outros">
+      {other = [] || '' ? '' : <Section title="Outros">
         <Carousel data={other} />
       </Section>
+      }
       <Footer />
     </Container>
   )

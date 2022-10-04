@@ -12,15 +12,15 @@ import { useState, useEffect } from "react"
 
 
 export function Adm() {
-  const [data, setData] = useState([]) 
-  const [search , setSearch] = useState('') 
+  const [data, setData] = useState([])
+  const [search, setSearch] = useState('')
 
   const drinks = data.filter(products => products.category == "bebidas")
   const desserts = data.filter(products => products.category == "sobremesas")
   const mainDishes = data.filter(products => products.category == "pratosPrincipais")
   const other = data.filter(products => products.category == "outros")
 
- 
+
   useEffect(() => {
     async function fetchProducts() {
       const response = await api.get(`/loadProduct`)
@@ -42,9 +42,9 @@ export function Adm() {
 
   return (
     <Container>
-      <Header onChange={e=> setSearch(e.target.value)}/>
+      <Header onChange={e => setSearch(e.target.value)} />
       <Main>
-      <div>
+        <div>
           <img src={banner} alt="aaaaanp" />
         </div>
         <div>
@@ -64,10 +64,10 @@ export function Adm() {
         <Carousel data={drinks} />
       </Section>
 
-      <Section title="Outros">
+      {other == [] || '' ? '' : <Section title="Outros">
         <Carousel data={other} />
       </Section>
-
+      }
       <Footer />
     </Container>
   )
