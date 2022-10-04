@@ -1,13 +1,20 @@
 import styled from "styled-components";
 
-export const Container = styled.header`
-  background: ${({ theme }) => theme.COLORS.SECONDARY_BG};
+export const Container = styled.div`
+    width: 100%;
+    display: flex;
+    align-items:  center;
+    justify-content: center;
+    background: ${({ theme }) => theme.COLORS.SECONDARY_BG};
+
+  >header{
   display: flex;
   flex-direction: column;
   align-items:  center;
   padding: 0 2rem;
   gap: 1rem;
   width: 100%;
+  max-width: 1220px;
   >.icon{
     color: ${({ theme }) => theme.COLORS.DARK_BLUE};
    fill: ${({ theme }) => theme.COLORS.DARK_BLUE};
@@ -20,6 +27,11 @@ export const Container = styled.header`
     justify-content:center;
    
   }
+
+
+
+  }
+ 
   
 `
 

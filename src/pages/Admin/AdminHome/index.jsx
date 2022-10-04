@@ -13,36 +13,20 @@ import { useState, useEffect } from "react"
 import { useProduct } from "../../../hooks/Product"
 
 export function Adm() {
-  // const {
-  //   desserts, mains,
-  //   drinks, others,products,
-
-  //   loadDessertsCategory,
-  //   loadMainCategory,
-  //   loadDrinksCategory,
-  //   loadOutersCategory,
-  //   loadProducts, 
-  // } = useProduct({})
-
-  const [products, setProducts] = useState([]) // sobremesas
+  const [products, setProducts] = useState([]) 
   const [search , setSearch] = useState('') 
-  
-  useEffect(() => {
-    // loadProducts()
-    // loadDrinksCategory()
-    // loadDessertsCategory()
-    // loadMainCategory()
-    // loadOutersCategory()
 
-    async function loadProducts() {
-      try {
-        const response = await api.get("/loadProduct");
-        const { allProducts } = response.data
-        setProducts(allProducts)
-      } catch (error) {
-        console.log(error);
-      }
-    }loadProducts()
+  const drinks = products.filter(products => products.category == "bebidas")
+  const desserts = products.filter(products => products.category == "sobremesas")
+  const mainDishes = products.filter(products => products.category == "pratosPrincipais")
+  const other = products.filter(products => products.category == "outros")
+
+  useEffect(() => {
+    async function fetchProducts() {
+      const response = await api.get(`/loadProduct`)
+      setProducts(response.data)
+    } fetchProducts()
+
   }, [])
 
   useEffect(()=>{
@@ -67,16 +51,19 @@ export function Adm() {
         </div>
       </Main>
       <Section title="Pratos Principais">
-        <Carousel data={products} />
+        <Carousel data={mainDishes} />
       </Section>
+
       <Section title="Sobremesas">
-        <Carousel data={products} />
+        <Carousel data={desserts} />
       </Section>
+
       <Section title="Bebidas">
-        <Carousel data={products} />
+        <Carousel data={drinks} />
       </Section>
+
       <Section title="Outros">
-        <Carousel data={products} />
+        <Carousel data={other} />
       </Section>
 
       <Footer />

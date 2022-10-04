@@ -32,7 +32,7 @@ export function IngredientImg({ ingredientName }) {
   return (
     <Container>
       {AccentRemover(ingredientName) == 'arugula' ? <span><img src={arugula} alt={`imagem de ${ingredientName}`} /><span>{ingredientName}</span></span> : ''}
-      {AccentRemover(ingredientName) == 'paonan' ? <span><img src={bread_nan} alt={`imagem de ${ingredientName}`} /><span>{ingredientName}</span></span> : ''}
+      {AccentRemover(ingredientName) == 'paonaan' ? <span><img src={bread_nan} alt={`imagem de ${ingredientName}`} /><span>{ingredientName}</span></span> : ''}
       {AccentRemover(ingredientName) == 'pao' ? <span><img src={bread} alt={`imagem de ${ingredientName}`} /><span>{ingredientName}</span></span> : ''}
       {AccentRemover(ingredientName) == 'pepino' ? <span><img src={cucumber} alt={`imagem de ${ingredientName}`} /><span>{ingredientName}</span></span> : ''}
       {AccentRemover(ingredientName) == 'presunto' ? <span><img src={ham} alt={`imagem de ${ingredientName}`} /><span>{ingredientName}</span></span> : ''}

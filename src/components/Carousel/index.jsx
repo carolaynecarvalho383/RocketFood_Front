@@ -44,21 +44,20 @@ export function Carousel({ data, ...rest }) {
             slidesPerGroup: 3
           },
           1024: {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 50,
-            slidesPerGroup: 4
+            slidesPerGroup: 3
           },
           1324: {
-            slidesPerView: 5,
-            spaceBetween: 50,
-            slidesPerGroup: 5
+            slidesPerView: 4,
+            spaceBetween: 60,
+            slidesPerGroup: 4
           }
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
         className="mySwiper"
       >
-
 
         { data &&
             data.map(product => (
@@ -69,12 +68,7 @@ export function Carousel({ data, ...rest }) {
                 />
               </SwiperSlide>
             ))
-        
           }
-
-
-
-
       </Swiper>
     </>
   );

@@ -4,10 +4,11 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   position: relative;
   margin-top: 1rem;
-  width: 28rem;
-  height: 46rem;
+  //width: 30rem;
+  height: 56rem;
   padding: 4rem;
   background-color: rgba(0, 0, 0, 0.32);
   

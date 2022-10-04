@@ -32,56 +32,58 @@ export function Header({ addCart, ...rest }) {
 
   return (
     <Container>
+      <header>
 
-      <Logo className="logo"
-        icon={<FiHexagon className="icon2" size={25} />}
-        title="Food Explorer"
-      />
-      <SearchBar {...rest} />
-      <Nav>
-        {!admin ?
-          <Link to="/favorites">
-            <AiOutlineHeart color="#750310" />
-            Favoritos
-          </Link> :
-          <Link to="/administrator">
-            <AiOutlineUser />
-            Administrador
-          </Link>}
-        {!admin ?
-          <Link to="/buy" >
-            <Button icon={<AiFillShopping size={25} />}
-              className="myRequestes"
-              title={`Meus Pedido (${cart})`} />
-          </Link>     
-          : 
-          <Link to="/allRequests" >
-            <Button icon={<AiFillShopping size={25} />}
-              className="myRequestes"
-              title={`Todos Pedido `} />
-          </Link>
+        <Logo className="logo"
+          icon={<FiHexagon className="icon2" size={25} />}
+          title="Food Explorer"
+        />
+        <SearchBar {...rest} />
+        <Nav>
+          {!admin ?
+            <Link to="/favorites">
+              <AiOutlineHeart color="#750310" />
+              Favoritos
+            </Link> :
+            <Link to="/administrator">
+              <AiOutlineUser />
+              Administrador
+            </Link>}
+          {!admin ?
+            <Link to="/buy" >
+              <Button icon={<AiFillShopping size={25} />}
+                className="myRequestes"
+                title={`Meus Pedido (${cart})`} />
+            </Link>
+            :
+            <Link to="/allRequests" >
+              <Button icon={<AiFillShopping size={25} />}
+                className="myRequestes"
+                title={`Todos Pedido `} />
+            </Link>
           }
-          {!admin ?      <Link to="/buy" >
+          {!admin ? <Link to="/buy" >
             <Button icon={<AiFillShopping size={15} />}
               className="openButtonRequests"
               title={`(${cart})`} />
           </Link>
-          :
+            :
             <Link to="/allRequests" >
-            <Button icon={<AiFillShopping size={15} />}
-              className="openButtonRequests"
-               />
+              <Button icon={<AiFillShopping size={15} />}
+                className="openButtonRequests"
+              />
+            </Link>
+          }
+          <Link to="/profile">
+            <img src={avatarUrl} />
           </Link>
-            }
-        <Link to="/profile">
-          <img src={avatarUrl} />
-        </Link>
 
-        <Link to="/" onClick={signOut}>
-          <ImExit color="#FFFFFF" size={25} />
-        </Link>
-      </Nav>
+          <Link to="/" onClick={signOut}>
+            <ImExit color="#FFFFFF" size={25} />
+          </Link>
+        </Nav>
 
+      </header>
 
     </Container>
   )

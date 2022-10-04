@@ -1,13 +1,20 @@
 import styled from "styled-components";
 
 export const Container = styled.footer`
+    width: 100%;
+    background: ${({ theme }) => theme.COLORS.SECONDARY_BG};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  >footer{
   width: 100%;
+  max-width: 1220px;
   height: 7.7rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: ${({ theme }) => theme.COLORS.SECONDARY_BG};
-  padding: 4.2rem 12rem;
+  padding: 4.2rem 0;
   >small{
     color: ${({ theme }) => theme.COLORS.WHITE};
     display: flex;
@@ -24,4 +31,6 @@ export const Container = styled.footer`
     gap: 1.2rem;
     }
   }
+  }
+  
 `
