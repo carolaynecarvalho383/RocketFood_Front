@@ -1,5 +1,5 @@
 import { useAuth } from "../../hooks/auth"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 
 import { api } from "../../services/api";
@@ -9,19 +9,17 @@ import { BsFillHexagonFill, BsTruckFlatbed } from "react-icons/bs"
 import { Container, TableContainer } from "./styles";
 import { Link, useNavigate } from "react-router-dom";
 
-export function Table() {
+export function Table({ data }) {
   const { admin } = useAuth()
-  const [data, setData] = useState('')
-  const [status, setStatus] = useState(1)
+  const [status, setStatus] = useState('')
 
   const navigate = useNavigate()
 
+
   async function handlePatchStatus(id, value) {
     const isOK = window.confirm("Deseja alterar o status de comprar?")
-    
     if (isOK) {
       await api.patch(`/requests/${id}`, { status: value })
-      setStatus(prevState => prevState * 2)
     }
   }
 
@@ -29,14 +27,6 @@ export function Table() {
     navigate(`/requestDetails/${id}`)
   }
 
-  useEffect(()=>{
-    async function fetchPurchases() {
-      const response = await api.get(`/purchases/all`)
-      setData(response.data)
-      console.log('render');
-    }
-    fetchPurchases()
-  },[status])
 
   return (
     <Container>
