@@ -10,7 +10,9 @@ import {ConvertMoneyForNumberString} from "../../utils/ConvertMoneyForNumberStri
 
 export function PaymentCard({ requestPrice, allProducts }) {
   const [pix, setPix] = useState(false)
+  const products_id = allProducts.map(item =>  item)
 
+  console.log(products_id);
   const [numberCard, setNumberCard] = useState('')
   const [validationCard, setValidationCard] = useState('')
   const [cvc, setCvc] = useState('')
@@ -20,6 +22,8 @@ export function PaymentCard({ requestPrice, allProducts }) {
   async function handleBuyProducts(e) {
     e.preventDefault()
     try {
+      const products_id = allProducts.map(item => api.patch(`/purchases/inventory/${item.product_id}`, {inventory:item.amount}))
+
       await api.post('requests', { totalPrice:ConvertMoneyForNumberString(requestPrice) })
       alert("Compar Realizada Com sucesso!")
       navigate('/')

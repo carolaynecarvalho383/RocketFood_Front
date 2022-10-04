@@ -9,14 +9,14 @@ import { api } from "../../../services/api";
 export function AllRequests() {
   const [data, setData] = useState('')
 
-
   useEffect(()=>{
     async function fetchPurchases() {
-      const response = await api.get(`/requests/all`)
+      const response = await api.get(`/purchases/all`)
       setData(response.data)
     }
     fetchPurchases()
   },[])
+  
   return (
     <Container>
       <Header />
