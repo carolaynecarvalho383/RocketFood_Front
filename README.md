@@ -5,7 +5,12 @@ Cardápio digital para um restaurante fictício
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/luis-soares-64b0a6227/)
 
+#### link produção
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b0cb348a-5c47-48c6-932e-bf3aa50eff69/deploy-status)](https://rocket-food.netlify.app/)
+
+##### link API
+- <https://github.com/luiszkm/API_RocketFood>
 ## Funcionalidades gerais
 - Autenticação dos usarios JWT
 - mobile first, responsivo
@@ -76,5 +81,10 @@ $ npm run dev
 
 [![Figma](https://camo.githubusercontent.com/9a8ccd8ae319ddac9934db226e7834d7e1c61a31076e7d7c04ecb5bf352967aa/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6669676d612d2532334632344531452e7376673f7374796c653d666f722d7468652d6261646765266c6f676f3d6669676d61266c6f676f436f6c6f723d7768697465)](https://www.figma.com/file/GkqG5AUJe3ppcUEHfvOX6z/food-explorer?node-id=0%3A1)
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](./src/assets/preview.png)
+
+
+## Licença
+
+[MIT](https://choosealicense.com/licenses/mit/)
 
