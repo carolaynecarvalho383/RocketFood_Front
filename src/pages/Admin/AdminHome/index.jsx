@@ -13,30 +13,33 @@ import { useState, useEffect } from "react"
 import { useProduct } from "../../../hooks/Product"
 
 export function Adm() {
-  const [products, setProducts] = useState([]) 
+  const [data, setData] = useState([]) 
   const [search , setSearch] = useState('') 
 
-  const drinks = products.filter(products => products.category == "bebidas")
-  const desserts = products.filter(products => products.category == "sobremesas")
-  const mainDishes = products.filter(products => products.category == "pratosPrincipais")
-  const other = products.filter(products => products.category == "outros")
+  const drinks = data.filter(products => products.category == "bebidas")
+  const desserts = data.filter(products => products.category == "sobremesas")
+  const mainDishes = data.filter(products => products.category == "pratosPrincipais")
+  const other = data.filter(products => products.category == "outros")
 
+ 
   useEffect(() => {
     async function fetchProducts() {
       const response = await api.get(`/loadProduct`)
-      setProducts(response.data)
+      setData(response.data)
+
     } fetchProducts()
 
   }, [])
 
-  useEffect(()=>{
-    async function fetchSearch(){
-      const response = await api.get(`/products?title=${search}&ingredients=${search}`)
-      setProducts(response.data)
+  useEffect(() => {
+    async function fetchSearch() {
+      const response = await api.get(`/products?title=${search}&ingredients${search}`)
+      setData(response.data)
+
     }
-     fetchSearch()
-    
-  },[search])
+    fetchSearch()
+
+  }, [search])
 
   return (
     <Container>
