@@ -38,7 +38,7 @@ export function Home() {
     fetchSearch()
 
   }, [search])
-
+ console.log(other);
   return (
     <Container>
       <Header onChange={e => setSearch(e.target.value)}
@@ -64,7 +64,7 @@ export function Home() {
         <Carousel data={drinks} />
       </Section>
 
-      {other = [] || '' ? '' : <Section title="Outros">
+      {other.length === 0 ? '' : <Section title="Outros">
         <Carousel data={other} />
       </Section>
       }

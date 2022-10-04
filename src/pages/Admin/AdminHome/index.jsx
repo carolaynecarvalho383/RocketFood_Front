@@ -64,7 +64,7 @@ export function Adm() {
         <Carousel data={drinks} />
       </Section>
 
-      {other == [] || '' ? '' : <Section title="Outros">
+      {other.length === 0 ? '' : <Section title="Outros">
         <Carousel data={other} />
       </Section>
       }
