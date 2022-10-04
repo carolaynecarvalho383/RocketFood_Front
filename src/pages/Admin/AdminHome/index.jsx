@@ -10,7 +10,6 @@ import banner from "../../../assets/banner.svg";
 import { Container, Main } from "./styles"
 import { useState, useEffect } from "react"
 
-import { useProduct } from "../../../hooks/Product"
 
 export function Adm() {
   const [data, setData] = useState([]) 
