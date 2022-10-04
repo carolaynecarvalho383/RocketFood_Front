@@ -5,6 +5,8 @@ import { Card } from "../../../components/Card"
 import { Carousel } from "../../../components/Carousel"
 import { api } from "../../../services/api"
 
+import banner from "../../../assets/banner.svg";
+
 import { Container, Main } from "./styles"
 import { useState, useEffect } from "react"
 
@@ -56,8 +58,13 @@ export function Adm() {
     <Container>
       <Header onChange={e=> setSearch(e.target.value)}/>
       <Main>
-        <h1>Sou ADM</h1>
-        <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
+      <div>
+          <img src={banner} alt="aaaaanp" />
+        </div>
+        <div>
+          <h1>Sabores inigualáveis</h1>
+          <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
+        </div>
       </Main>
       <Section title="Pratos Principais">
         <Carousel data={products} />
