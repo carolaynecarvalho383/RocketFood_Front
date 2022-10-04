@@ -29,8 +29,6 @@ import { AccentRemover } from "../../utils/AccentRemover";
 import { Container } from "./styles";
 
 export function IngredientImg({ ingredientName }) {
-
-
   return (
     <Container>
       {AccentRemover(ingredientName) == 'arugula' ? <span><img src={arugula} alt={`imagem de ${ingredientName}`} /><span>{ingredientName}</span></span> : ''}
