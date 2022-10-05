@@ -9,7 +9,7 @@ import { IngredientImg } from "../IngredientImg";
 export function IngredientsContainer() {
   const [data, setData] = useState([])
   const params = useParams()
-
+ 
   useEffect(() => {
     async function fetchIngredients() {
       const response = await api.get(`/ingredients/${params.id}/`)
