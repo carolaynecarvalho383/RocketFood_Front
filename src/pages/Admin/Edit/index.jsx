@@ -164,11 +164,12 @@ console.log(imageFile);
             <Input value={category} name="Category"
               placeholder="Selecione uam categoria" className="hide"
               outer={
-                <select name="category" onChange={e => setCategory(e.target.value)}>
-                  <option value="Pratos Principais">Pratos Principais</option>
-                  <option value="Sobremesas">Sobremesas</option>
-                  <option value="Bebidas">Bebidas</option>
-                  <option value="Outros">Outros</option>
+                <select name="category" value ={data.category}
+                 onChange={e => setCategory(e.target.value)}>
+                  <option value="pratosPrincipais">Pratos Principais</option>
+                  <option value="sobremesas">Sobremesas</option>
+                  <option value="bebidas">Bebidas</option>
+                  <option value="outros">Outros</option>
                 </select>} />
 
             <Input onChange={e => setInventory(e.target.value)}
