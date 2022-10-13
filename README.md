@@ -7,8 +7,7 @@ Cardápio digital para um restaurante fictício
 
 #### link produção
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b0cb348a-5c47-48c6-932e-bf3aa50eff69/deploy-status)](https://rocket-food.netlify.app/)
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/23ead990-8c81-49d4-88d5-5bba820ddf98/deploy-status)](https://app.netlify.com/sites/thriving-smakager-4fee9c/deploys)
 ##### link API
 - <https://github.com/luiszkm/API_RocketFood>
 ## Funcionalidades gerais
@@ -83,6 +82,7 @@ $ npm run dev
 
 ![App Screenshot](./src/assets/preview.png)
 
+<https://rocket-food.netlify.app/>
 
 ## Licença
 
