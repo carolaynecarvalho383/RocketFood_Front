@@ -3,13 +3,9 @@
 
 Cardápio digital para um restaurante fictício
 
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/luis-soares-64b0a6227/)
 
-#### link produção
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/23ead990-8c81-49d4-88d5-5bba820ddf98/deploy-status)](https://app.netlify.com/sites/thriving-smakager-4fee9c/deploys)
 ##### link API
-- <https://github.com/luiszkm/API_RocketFood>
+- <https://github.com/carolaynecarvalho383/RocketFood_back>
 ## Funcionalidades gerais
 - Autenticação dos usarios JWT
 - mobile first, responsivo
@@ -44,7 +40,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/luiszkm/RocketFood.git>
+$ git clone <https://github.com/carolaynecarvalho383/RocketFood_Front>
 
 # Instale as dependências
 $ npm install
@@ -65,7 +61,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/luiszkm/API_RocketFood.git>
+$ git clone <https://github.com/carolaynecarvalho383/RocketFood_back>
 
 # Instale as dependências
 $ npm install
